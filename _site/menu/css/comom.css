@@ -18,9 +18,10 @@ a {
 }
 
 .circle {
-    top: -140px;
-    right: -620px;
-    /*position: absolute;*/
+  margin: 0 auto;
+  float:right;
+  /*top:-55px;*/
+  /*right:-55px;*/
 }
 
 .ring {

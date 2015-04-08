@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{{ page.title }}</title>
+    <link rel="stylesheet" type="text/css" href="{{ site.url }}/style/style.css" >
+    <link rel="stylesheet" type="text/css" href="{{ site.url }}/style/comom.css" >
+</head>
+<body>
+
+    <div id="header">
+        <div id="titlePanel"><a href="{{ site.url }}/index.html"><img src="{{ site.url }}/images/me.png" width="80" height="80" /></a></div>
+        {% include navigation.html %}
+        <div class="circle">
+            <div class="ring">
+                <a href="/" class="menuItem fa fa-home fa-2x"></a>
+                <a href="" class="menuItem fa fa-comment fa-2x"></a>
+                <a href="" class="menuItem fa fa-play fa-2x"></a>
+                <a href="" class="menuItem fa fa-camera fa-2x"></a>
+                <a href="" class="menuItem fa fa-music fa-2x"></a>
+                <a href="" class="menuItem fa fa-user fa-2x"></a>
+                <a href="" class="menuItem fa fa-trash-o fa-2x"></a>
+                <a href="" class="menuItem fa fa-star fa-2x"></a>
+            </div>
+            <a href="#" class="center fa fa-th fa-2x"></a>
+        </div>
+    </div>
+    <!--<div style="clear: both;"></div>-->
+
+    <div id="main">
+        <div id="menuPanel">旅行不是去观光，而失去寻找我们失去的东西.旅行不是去观光，而失去寻找我们失去的东西.旅行不是去观光，而失去寻找我们失去的东西.旅行不是去观光，而失去寻找我们失去的东西.旅行不是去观光，而失去寻找我们失去的东西.旅行不是去观光，而失去寻找我们失去的东西.旅行不是去观光，而失去寻找我们失去的东西.旅行不是去观光，而失去寻找我们失去的东西.旅行不是去观光，而失去寻找我们失去的东西.旅行不是去观光，而失去寻找我们失去的东西.</div>
+        <div id="contentPanel">
+
+            <p id="titleP">{{ page.title }}</p>
+            <p id="authorP">......【 <img id="authorImg" src="{{ site.url }}/images/me_small.png" />{{ site.author }} 写于 {{ page.date | date: '%Y-%m-%d' }} 】......</p>
+            <div id="aritclePanel">{{ page.content }}</div>
+        </div>
+    </div>
+    <div id="footer">look</div>
+</body>
+<script language="javascript" type="text/javascript" src="{{ site.url }}/js/nav.js"></script>
+</html>

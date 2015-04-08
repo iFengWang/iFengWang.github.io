@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{{ page.title }}</title>
+    <link rel="stylesheet" type="text/css" href="style/style.css" >
+    <link rel="stylesheet" type="text/css" href="style/comom.css" >
+
+</head>
+<body>
+
+    <div id="header">
+
+        <div id="titlePanel"><a href="/"><img src="images/me.png" width="80" height="80" /></a></div>
+
+        {% include navigation.html %}
+
+        <div class="circle">
+            <div class="ring">
+                <a href="/" class="menuItem fa fa-home fa-2x"></a>
+                <a href="" class="menuItem fa fa-comment fa-2x"></a>
+                <a href="" class="menuItem fa fa-play fa-2x"></a>
+                <a href="" class="menuItem fa fa-camera fa-2x"></a>
+                <a href="" class="menuItem fa fa-music fa-2x"></a>
+                <a href="" class="menuItem fa fa-user fa-2x"></a>
+                <a href="" class="menuItem fa fa-trash-o fa-2x"></a>
+                <a href="" class="menuItem fa fa-star fa-2x"></a>
+            </div>
+            <a href="#" class="center fa fa-th fa-2x"></a>
+        </div>
+    </div>
+
+    <div id="main">{{ content }}</div>
+    <div id="footer">有些时候，不是看到希望才坚持，而是坚持才能看到希望!</div>
+</body>
+<script language="javascript" type="text/javascript" src="js/nav.js"></script>
+</html>

@@ -1,0 +1,19 @@
+#网站栏目设置-------------------
+
+- title: 随想随写
+  url: /write.html
+
+- title: 边走边拍
+  url: /photo.html
+
+- title: OC&SWIFT
+  url: /ios.html
+
+- title: JAVASCRIPT
+  url: /js.html
+
+- title: METEOR
+  url: /meteor.html
+
+- title: HTML5
+  url: /h5.html

@@ -1,23 +1,11 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title>Frank's Site</title>
-    <link rel="stylesheet" type="text/css" href="style/style.css">
-</head>
-<body>
+---
+layout: index_template
+title: iSGO
+---
 
-<div id="wrapper">
-    <div id="montior"></div>
-    <div id="navPanel">
-        <input class="but" type="button" value="☄边走边拍"></input>
-        <input class="but" type="button" value="✐随想随写"></input>
-        <input class="but" type="button" value="✧OC&SWIFT"></input>
-        <input class="but" type="button" value="✧JAVASCRIPT"></input>
-        <input class="but" type="button" value="✧METEOR"></input>
-        <input class="but" type="button" value="✧HTML5"></input>
-    </div>
-</div>
+<ul>
+    {% for post in site.posts limit: 2 %}
+    <li>✐ <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>..........{{ post.date | date: '%Y-%m-%d' }}</li>
+    {% endfor %}
+</ul>
 
-</body>
-</html>
