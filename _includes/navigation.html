@@ -1,11 +1,11 @@
 <div id="navPanel">
     {% for link in site.data.navigation %}
-        {% if link.url contains 'http' %}
-        {% assign domain = '' %}
-        {% else %}
-        {% assign domain = site.url %}
-        {% endif %}
-    <input class="but" type="button" value="✧{{ link.title }}" onclick="window.location='{{ domain }}{{ link.url }}'"></input>
+        <!--{% if link.url contains 'http' %}-->
+        <!--{% assign domain = '' %}-->
+        <!--{% else %}-->
+        <!--{% assign domain = site.url %}-->
+        <!--{% endif %}-->
+    <input class="but" type="button" value="✧{{ link.title }}" onclick="window.location='{{ site.url }}{{ link.url }}'"></input>
     {% endfor %}
 
 </div>
