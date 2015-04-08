@@ -1,6 +1,6 @@
 #全局相关变量集----------------------
-#baseurl: /
-url: http://ifengwang.github.io/blog
+baseurl: /blog
+url: http://ifengwang.github.io
 encoding: utf-8
 
 
