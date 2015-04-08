@@ -6,7 +6,7 @@ title: Frank's Blog
 {{ site.url }}<br />{{ site.baseurl }}
 <ul>
     {% for post in site.posts limit: 2 %}
-    <li>✐ <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>..........{{ post.date | date: '%Y-%m-%d' }}</li>
+    <li>✐ <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>..........{{ post.date | date: '%Y-%m-%d' }}</li>
     {% endfor %}
 </ul>
 
