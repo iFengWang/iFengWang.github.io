@@ -94,6 +94,7 @@ a:active,a:hover {
     border-radius: 15px;
     margin-right: 10px;
     padding: 10px;
+    text-align: center;
 }
 #contentPanel{
     margin-left:-200px;
@@ -145,6 +146,8 @@ a:active,a:hover {
 
 
 /*按钮------------------------------------------*/
+.l{text-align: left;}
+
 .but{
     width:150px;
     height:40px;

@@ -9,8 +9,13 @@ title: Frank's Blog
     {% endfor %}
 </ul>
 
-<!--<ul>-->
-    <!--<li>ssssssssssssssssss</li>-->
-    <!--<li>{{ site.url }}</li>-->
-    <!--<li>{{ site.baseurl }}</li>-->
-<!--</ul>-->
+
+<!--{% for tag in site.tags %}-->
+
+    <!--{% if tag[0] == "swift" %}-->
+        <!--{% for item in tag[1] %}-->
+           <!--<a href="{{ item.url }}">{{ item.content }}</a><br />-->
+        <!--{% endfor %}-->
+    <!--{% endif %}-->
+
+<!--{% endfor %}-->
