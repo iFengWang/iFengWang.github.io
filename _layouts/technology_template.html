@@ -3,18 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>{{ page.title }}</title>
-    <link rel="stylesheet" type="text/css" href="style/style.css" >
-    <link rel="stylesheet" type="text/css" href="style/comom.css" >
-
+    <link rel="stylesheet" type="text/css" href="{{ site.url }}/style/style.css" >
+    <link rel="stylesheet" type="text/css" href="{{ site.url }}/style/comom.css" >
 </head>
 <body>
 
     <div id="header">
-
-        <div id="titlePanel"><a href="{{ site.url }}"><img src="images/me.png" width="80" height="80" /></a></div>
-
+        <div id="titlePanel"><a href="{{ site.url }}"><img src="{{ site.url }}/images/me.png" width="80" height="80" /></a></div>
         {% include navigation.html %}
-
         <div class="circle">
             <div class="ring">
                 <a href="/" class="menuItem fa fa-home fa-2x"></a>
@@ -29,12 +25,21 @@
             <a href="#" class="center fa fa-th fa-2x"></a>
         </div>
     </div>
+    <!--<div style="clear: both;"></div>-->
 
     <div id="main">
-        {% include tag_menu.html %}
-        <div id="contentPanel">{{ content }}</div>
+
+        <div id="menuPanel">
+            {% include tag_menu.html %}
+        </div>
+        <div id="contentPanel">
+
+            <p id="titleP">{{ page.title }}</p>
+            <p id="authorP">......【 <img id="authorImg" src="{{ site.url }}/images/me_small.png" />{{ site.author }} 写于 {{ page.date | date: '%Y-%m-%d' }} 】......</p>
+            <div id="aritclePanel">{{ page.content }}</div>
+        </div>
     </div>
-    <div id="footer">有些时候，不是看到希望才坚持，而是坚持才能看到希望!</div>
+    <div id="footer">look</div>
 </body>
-<script language="javascript" type="text/javascript" src="js/nav.js"></script>
+<script language="javascript" type="text/javascript" src="{{ site.url }}/js/nav.js"></script>
 </html>

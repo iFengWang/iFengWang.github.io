@@ -128,7 +128,7 @@ a:active,a:hover {
     width:22px;
     height:22px;
     position: relative;
-    top: 3px;
+    /*top: 4px;*/
     margin-right: 5px;
 }
 #aritclePanel{
@@ -146,7 +146,11 @@ a:active,a:hover {
 
 
 /*按钮------------------------------------------*/
-.l{text-align: left;}
+.l{
+    text-align: left;
+    /*padding-left: 20px;*/
+    text-indent: 10px;
+}
 
 .but{
     width:150px;
@@ -159,8 +163,8 @@ a:active,a:hover {
     color:#FFF;
     -webkit-transition: all .3s ease-in-out;
 
-    margin-left: 5px;
-    margin-right: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
 
     background: none;
 }
@@ -193,7 +197,9 @@ a:active,a:hover {
 #siteTitle{
 
     height:50px;
+    /*font-family:"Times New Roman",Georgia,Serif;*/
     font-size:36px;
+    /*font-style:italic;*/
     Letter-spacing:1px;
     color:#FFF;
 
@@ -209,8 +215,8 @@ a:active,a:hover {
     min-height: 400px;
     /*padding: 30px;*/
 
-    border: #EEEEEE solid 5px;
-    border-radius: 15px;
+    border: #EEEEEE solid 3px;
+    border-radius: 10px;
     -webkit-box-shadow:0 0 30px #000000;
     -moz-box-shadow:0 0 30px #000000;
     box-shadow:0 0 30px #000000;
