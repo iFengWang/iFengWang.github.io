@@ -36,9 +36,35 @@
             <p id="titleP">{{ page.title }}</p>
             <p id="authorP">......【 <img id="authorImg" src="{{ site.url }}/images/me_small.png" />{{ site.author }} 写于 {{ page.date | date: '%Y-%m-%d' }} 】......</p>
             <div id="aritclePanel">{{ page.content }}</div>
+
+            <!--插入评论-->
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+                /* * * CONFIGURATION VARIABLES * * */
+                var disqus_shortname = 'ifengwang';
+
+                /* * * DON'T EDIT BELOW THIS LINE * * */
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+            <!--结束评论-->
+
         </div>
     </div>
-    <div id="footer">look</div>
+    {% include footer.html %}
+
+
+
+
+
+
+
+
+
 </body>
 <script language="javascript" type="text/javascript" src="{{ site.url }}/js/nav.js"></script>
 </html>
