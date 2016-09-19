@@ -1,0 +1,37 @@
+---
+layout: page
+title: 关于谓词的使用
+modified:
+categories: [technology]
+excerpt:
+tags: [object-c]
+image:
+feature:
+---
+
+<h3>代码示例如下:</h3>
+<pre>
+<code>
+//BETWEEN,IN,BEGINSWITH,ENDSWITH,CONTAINS,LIKE,NOT,AND,OR,
+//如果数组放的都是字符串就使用SELF
+
+NSPredicate *predicate=[NSPredicate predicateWithFormat:@"children.age<25"];
+//可以使用%K来指定key path：
+NSPredicate *predicate=[NSPredicate predicateWithFormat:@"%K==%@",@"children.name",@"xiaofeng"];
+NSPredicate *predicate=[NSPredicate predicateWithFormat:@"children.age BETWEEN {20,25}"];
+NSPredicate *predicate=[NSPredicate predicateWithFormat:@"children.name CONTAINS 'ok'"];
+NSPredicate *predicate=[NSPredicate predicateWithFormat:@"SELF IN %@",inArray];
+NSPredicate *predicate=[NSPredicate predicateWithFormat:@"SELF.name IN %@",inArray];
+NSPredicate *predicate=[NSPredicate predicateWithFormat:@"name BEGINSWITH 't'|| name ENDSWITH 'j'"];
+//附加符号，[c],[d],[cd],c表示不区分大小写，d表示不区分发音字符，cd表示什么都不区分
+NSPredicate *predicate=[NSPredicate predicateWithFormat:@"name LIKE[cd] '*4'"];
+NSPredicate *predicate=[NSPredicate predicateWithFormat:@"SELF MATCHES %@",regex];
+//在谓词条件中使用变量来指定value，predicateTemplate相当于一个谓词模板，然后调用predicateWithSubstitutionVariables:方法创建谓词
+ NSPredicate * predicateTemplate = [NSPredicate predicateWithFormat:@"name == $NAME"];
+ NSDictionary *varDict = [NSDictionary dictionaryWithObjectsAndKeys: @"Herbie", @"NAME", nil];
+ predicate = [predicateTemplate predicateWithSubstitutionVariables: varDict];
+
+BOOL ret=[predicate evaluateWithObject:p];     //判断对象是否满足条件
+NSArray *filterArray=[array filteredArrayUsingPredicate:predicate];      //过滤数组
+</code>
+</pre>

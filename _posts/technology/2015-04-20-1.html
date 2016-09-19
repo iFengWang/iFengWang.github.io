@@ -1,0 +1,33 @@
+---
+layout: page
+title: 将程序注释文档化
+modified:
+categories: [technology]
+excerpt:
+tags: [object-c]
+image:
+feature:
+---
+
+将以前整理过的又疏理了一下放上来，便于自己或有需要的朋友们查询:<br /><br />
+
+<h2>VVDocumenter-Xcode（生成注释）：</h2>
+1、git clone http://github.com/onevcat/VVDocumenter-Xcode<br />
+2、打开工程build&run一下就安装成功了<br />
+3、重启xcode<br />
+4、使用:在要加入注释的地方输入///即可自动转换成指定格式<br /><br />
+<h2>appledoc（将注释生成文档）：</h2>
+<h3>安装:</h3>
+git clone git://github.com/tomaz/appledoc.git<br />
+cd appledoc<br />
+sudo sh install-appledoc.sh<br />
+<h3>查看:</h3>
+appledoc --help<br />
+appledoc --version<br />
+<h3>使用</h3>
+<pre><code>
+appledoc --no-create-docset --project-name "项目" --project-company "公司” --company-id "com.公司.项目" --output 输出路径 源路径
+</code></pre>
+--no-create-docset:单独生成HTML且第一次不要加。<br />
+--keep-intermediate-files:第一次生成时包含很多中间文件，包括HTML。<br />
+选中.h文件中要加注释的接口，右击或alt+command+/,选择“生成注释文档”。

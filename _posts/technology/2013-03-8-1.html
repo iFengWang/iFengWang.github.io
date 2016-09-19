@@ -1,0 +1,38 @@
+---
+layout: page
+title: NSObject的一些常用操作
+modified:
+categories: [technology]
+excerpt:
+tags: [object-c]
+image:
+feature:
+---
+
+<h3>NSObject是OC中所有类的根类，里面有一些方法，可以被子类实现和重写:</h3>
+<pre><code>
+<h3>调用时机</h3>
+initialize方法：只在类第一次被实例化时执行一次，仅执行一次。
+load方法：如果import此类，则即会调用此方法。
+main方法：一般用在NSOperation类，当其被加入到NSQueue队列时，其main会自动执行。
+
+<h3>取消前面所注册过performSelector方法</h3>
+[NSObject cancelPreviousPerformRequestsWithTarget]方法：
+cancelPreviousPerformRequestsWithTarget：就是说当上面这个方法正在运行，比如我们希望10秒钟之后执行某一个方法，但是如何在没到10秒钟的情况下取消performSelector呢？就是用这个方法来实现的，场景背景单击变红，双击变蓝，双击时要取消第一次单击的操作。
+
+<h3>定义程序的转向</h3>
+-(NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector;
+-(void)forwardInvocation:(NSInvocation *)anInvocation;
+
+<h3>对类的一些判断</h3>
+// 对象是不是 class-object 或其子类的成员
+-(BOOL) isKindOfClass: classObject
+// 对象是不是 class-object 的成员
+-(BOOL) isMemberOfClass: classObject
+// 对象是否能够响应 Selector 所指定的方法
+-(BOOL) respondsToSelector: Selector
+// 指定的类实例是否能够响应 Selector
++(BOOL) instancesRespondToSelector: Selector
+// 对象是否是指定类的子类
++(BOOL) isSubclassOfClass: classObject
+</code></pre>

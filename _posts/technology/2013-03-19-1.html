@@ -1,0 +1,30 @@
+---
+layout: page
+title: OC中常用的宏和环境变量
+modified:
+categories: [technology]
+excerpt:
+tags: [object-c]
+image:
+feature:
+---
+
+<h3>在OC编程及发布过程中宏和环境是经常用到的:</h3>
+<pre><code>
+<h3>常用的宏:</h3>
+函数名：__FUNCTION__
+圆180度：M_PI
+__IPHONE_6_0
+__IPHONE_OS_VERSION_MAX_ALLOWED
+TARGET_OS_IPHONE：真机
+TARGET_IPHONE_SIMULATOR：模拟器
+if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad):判断设备类型
+__FUNC__:函数名
+__LINE__:行数
+<h3>环境变量：</h3>
+$(SRCROOT):工程目录
+$(inherited):继承的设置
+$()：产品路径，如build/Debug-iphoneos路径下
+$(TARGET_NAME)：目录工程名称
+$(CURRENT_PROJECT_VERSION)：当前工程版本号
+</code></pre>

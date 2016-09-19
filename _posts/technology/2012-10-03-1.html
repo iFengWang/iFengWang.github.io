@@ -1,0 +1,61 @@
+---
+layout: page
+title: 封装Framework
+modified:
+categories: [technology]
+excerpt:
+tags: [object-c]
+image:
+feature:
+---
+
+<p><br />前提：XCODE6以前先安装 iOS-Universal-Framework，XCODE6之后系统自带</p>
+
+<p><br />
+一、生成framework几点注意：<br />
+
+1，Build Active Architecture Only设置为NO。<br />
+2，framework中如果用到Plugin一定要和项目文件.xcodeproj放在同一个文件夹下。<br />
+3，将Header文件设置好，放到public下，所有.h都放在同一级，不要设子目录。<br />
+4，调成Release模式。<br />
+5，加合并脚本，并修改路径。<br />
+6，生成三次，前两次保证真机和模拟器对应的目录及文件都生成成功，第三次生成合并的。<br />
+7，如果用到MKNetworkKit则需要将MKNetworkKit.h中包含的文件都变成<框架名/文件名>。
+</p>
+<br />
+<pre>
+<code>
+if [ "${ACTION}" = "build" ]
+then
+    FRAME_NAME=${PRODUCT_NAME}.framework
+    EMBED_NAME=${PRODUCT_NAME}.embeddedframework
+
+    INSTALL_DIR=${SYMROOT}/${EMBED_NAME}
+    DEVICE_DIR=${SYMROOT}/Release-iphoneos
+    SIMULATOR_DIR=${SYMROOT}/Release-iphonesimulator
+
+    #拷贝
+    ditto "${DEVICE_DIR}/${FRAME_NAME}/Headers" "${INSTALL_DIR}/${FRAME_NAME}/Headers"
+    ditto "${DEVICE_DIR}/${FRAME_NAME}/Resources" "${INSTALL_DIR}/${FRAME_NAME}/Resources"
+    ditto "${DEVICE_DIR}/${EMBED_NAME}/Resources" "${INSTALL_DIR}/Resources"
+
+    #合并
+    lipo -create "${DEVICE_DIR}/${FRAME_NAME}/${PRODUCT_NAME}" "${SIMULATOR_DIR}/${FRAME_NAME}/${PRODUCT_NAME}" -output "${INSTALL_DIR}/${FRAME_NAME}/${PRODUCT_NAME}"
+
+    #生成注释
+    /usr/local/bin/appledoc --project-name "${PRODUCT_NAME}" --project-company "etaoshi" --company-id "com.etaoshi.${PRODUCT_NAME}" --keep-intermediate-files  --output "../Doc/ETSFramework" "${PROJECT_DIR}/ETSFramework"
+fi
+</code>
+</pre>
+
+<p><br />
+二、引用framework的注意点：<br />
+1，将target的 Other linker Flags设置-all_load,-ObjC<br />
+2，调成Release模式，是为了区别框架中定义的 预定义宏 TARGET=1
+</p>
+
+<p><br />
+三、判断framework支持哪些架构：<br />
+终端运行命令：lipo -info ./MyFramework.framework/MyFramework<br />
+得到如下结果：./MyFramework.framework/MyFramework are: armv7 armv7s i386 x86_64 arm64
+</p>

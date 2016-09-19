@@ -1,0 +1,44 @@
+---
+layout: page
+title: 关于KVO和KVC的使用
+modified:
+categories: [technology]
+excerpt:
+tags: [object-c]
+image:
+feature:
+---
+
+<h3>KVC:</h3>
+<pre>
+<code>
+[human valueForKeyPath:@"children.@count"]；//某一属性包含的元素个数
+[human valueForKeyPath:@"children.@sum.age"];//计算children中所有对象的年龄和
+[human valueForKeyPath:@"children.@max.age"];//计算children中所有对象年龄最大的
+[human valueForKeyPath:@"children.@min.age"];//计算children中所有对象年龄最小的
+[human valueForKeyPath:@"children.@avg.age"];//计算children中所有对象年龄的平均数
+</code>
+</pre>
+
+<br /><h3>KVO:</h3>
+<pre>
+<code>
+[stockForKVO addObserver:self forKeyPath:@"price" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:NULL];
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if([keyPath isEqualToString:@"price"])
+    {
+        myLabel.text = [stockForKVO valueForKey:@"price"];
+    }
+}
+
+[stockForKVO removeObserver:self forKeyPath:@"price"];
+[stockForKVO release];
+
+- (void)setOpeningBalance:(double)theBalance {
+    [self willChangeValueForKey:@"itemChanged"];
+    itemChanged=itemChanged+1;
+    [self didChangeValueForKey:@"itemChanged”];
+}
+</code>
+</pre>

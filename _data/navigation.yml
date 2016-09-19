@@ -1,10 +1,11 @@
 #网站栏目设置-------------------
 
-- title: 随想随写
+- title: 技术杂谈
+  url: /technology.html
+
+- title: 生活点滴
   url: /write.html
 
-- title: 边走边拍
-  url: /photo.html
+- title: 旅行漫记
+  url: /travel.html
 
-- title: 技术杂坛
-  url: /technology.html

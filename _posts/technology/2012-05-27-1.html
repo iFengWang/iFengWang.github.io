@@ -1,0 +1,79 @@
+---
+layout: page
+title: 关于CALayer的一些常用操作
+modified:
+categories: [technology]
+excerpt:
+tags: [object-c]
+image:
+feature:
+---
+
+通过CALayer，我们可以展示更多的效果，常见的操作如下
+
+<pre><code>
+
+    //创建对象
+    CALayer * subLayer = [CALayer layer];
+    //底色
+    subLayer.backgroundColor = [UIColor redColor].CGColor;
+    //阴影大小
+    subLayer.shadowOffset = CGSizeMake(0, 10);
+    //阴影的深浅  float数值  越小颜色越重
+    subLayer.shadowRadius = 1.0;
+    //阴影颜色
+    subLayer.shadowColor = [UIColor blueColor].CGColor;
+    //阴影透明度
+    subLayer.shadowOpacity = 0.8;
+    //大小
+    subLayer.frame = CGRectMake(30, 30, 128, 192);
+    //边框颜色
+    subLayer.borderColor = [UIColor blackColor].CGColor;
+    //边框宽度
+    subLayer.borderWidth = 2.0;
+    //设置委圆角
+    subLayer.cornerRadius = 10.0;
+    CALayer * imageLayer = [CALayer layer];
+    //层的  大小
+    imageLayer.frame = CGRectMake(0, 0, 128, 192);
+    //设置委圆角
+    imageLayer.cornerRadius = 10.0;
+    //设置剪辑
+    imageLayer.masksToBounds = YES;
+    //加载图片
+    imageLayer.contents = (id)[UIImage imageNamed:@"01.jpg"].CGImage;
+</code>
+</pre>
+<br />
+
+整个窗体加遮罩
+<pre><code>
+
+- (void) showMask {
+    CALayer *maskLayer = [CALayerlayer];
+    [maskLayer setFrame:[UIScreenmainScreen].bounds];
+    [maskLayer setBackgroundColor:[[UIColorcolorWithHue:0saturation:0brightness:0alpha:0.6] CGColor]];
+    [_window.layer addSublayer:maskLayer];
+}
+</code>
+</pre>
+<br />
+将一个LAYER设成另一个LAYER的遮罩
+<pre><code>
+
+- (void) maskLayer{
+    CALayer *lay1 = [CALayer layer];
+    lay1.backgroundColor = [UIColor redColor].CGColor;
+    lay1.frame = CGRectMake(100, 10, 100, 100);
+    lay1.contents = (id)([UIColor redColor].CGColor);
+
+    CALayer *maskLayer = [CALayer layer];
+    maskLayer.bounds = CGRectMake(0, 0, 100, 100);
+    maskLayer.position = CGPointMake(lay1.bounds.size.width/2.0,
+    lay1.bounds.size.height/2.0);
+    maskLayer.contents = (id)([UIImage imageNamed:@"del.png"].CGImage);
+    lay1.mask = maskLayer;
+    [self.view.layer addSublayer:lay1];
+}
+</code>
+</pre>

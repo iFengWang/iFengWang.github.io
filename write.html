@@ -1,10 +1,12 @@
 ---
-layout: write_list_template
-title: list
+layout: page
+title: 生活点滴
+description: 那些在艰难中奋进的人, 在顺境中自我加压的人, 在心智上不断升华的人 才会让梦想离得更近一些!
 ---
-
-<ul>
+	
 {% for post in site.categories.write %}
-<li>✐ <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>..........{{ post.date | date: '%Y-%m-%d' }}</li>
+<section>
+	<h4>✐ <a href="{{ site.url }}{{ post.url }}">{{ post.title }} - [ {{ post.date | date: '%Y-%m-%d' }} ]</a></h4>
+</section>
+<hr />
 {% endfor %}
-</ul>

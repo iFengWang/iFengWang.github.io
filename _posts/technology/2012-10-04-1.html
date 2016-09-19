@@ -1,0 +1,38 @@
+---
+layout: page
+title: 关于iOS的缓存机制
+modified:
+categories: [technology]
+excerpt:
+tags: [object-c]
+image:
+feature:
+---
+
+1、NSCache（在内存中缓存）：
+<pre>
+<code>
+⊕ countLimit：缓存空间的总成本，超出点限会自动回收对象，默认为0，表示没有上限
+⊕ evictsObjectswithDiscardedCount：能够缓存对象的最大数量，默认为0，表示没有上限
+-objectForKey：从缓存中取对象
+-setObject:ForKey:cost：保存对象进缓存，其中的cost代为上限，如10M
+-removeObjectForKey:     从缓存中删除对象
+<NSCachedelegate>     -cache:willEvictObject：代理函数，当删除对象是触发调用
+</code>
+</pre>
+
+注：NSUrlCache扩展应用。request请求时，可以先从urlcache中取出对应的response，如果没有则再发起请求
+<br /><br />
+2、NSHTTPCookie（会话cookie 和 持久cookie）：
+<pre><code>
+NSHTTPCookieStorage 单例来管理所有的NSHTTPCookie。
+-(NSArray*)cookies;
+-(NSArray*)cookiesForURL:(NSURL*)theURL;
+-(NSArray*)deleteCookie:
+-(NSArray*)setCookie:
+-(NSArray*)setCookie:forURL:mainDocumentURL:
+
+通过NSHTTPCookieStorage可读取/修改cookie接收策略,默认为NSHTTPCookieAcceptPolicyAlways
+- (NSHTTPCookieAcceptPolicy)cookieAcceptPolicy；
+- (void)setCookieAcceptPolicy:(NSHTTPCookieAcceptPolicy)aPolicy；
+</code></pre>

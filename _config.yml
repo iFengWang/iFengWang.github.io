@@ -1,17 +1,58 @@
-#全局相关变量集----------------------
-url: http://localhost:4000 #http://ifengwang.github.io/blog
-#baseurl: /blog
-encoding: utf-8
+# Welcome to Jekyll!
+#
 
+# Site settings
+title: Frank's Blog
+description: |
+  生活不是眼前的苟且, 还有诗和远方的田野,<br />
+  你赤手空拳来到这世界, 为找到那片海不顾一切!<br />
+owner: Frank Wang # or company name
+first_published: 2012 # if migrating another site, the year of your first publish
+email: guangfeng.w@gmail.com
+qq: 37158835
+baseurl: "/blog" # the subpath of your site, e.g. /blog
+url: "http://ifengwang.github.io/blog" # the base hostname & protocol for your site
+social:
+  github: https://github.com/ifengwang
+  linkedin-square: https://linkedin.com/in/广峰-王-740391b4
+  facebook-official: https://facebook.com/guangfeng.w
 
+  #email: /contact/
+  #flickr:
+  #instagram:
+  #youtube-square:
+  #spotify:
+  #stack-overflow:
+  #vimeo:
+  #reddit:
+  #stubleupon:
+  #delicious:
+  #pied-piper:
+  #digg:
+  #soundcloud:
+  #deviantart:
+  #angellist:
+  #tumblr-square:
+  #stackexchange:
+  #weibo:
+  #trello:
+  #foursquare:
+  #linux:
+  #bitbucket-square:
+  #vk:
+  #slack:
+  #vine:
+  #weixin:
+  #yelp:
+  #skyatlas:
+  #leanpub:
+  #connectdevelop:
+  #ils:
+  #forumbee:
+  #tripadvisor:
+  #amazon:
 
-#页面相关变量集----------------------
-
-
-
-
-
-
-
-#作者相关变量集----------------------
-author: Frank
+# Build settings
+markdown: kramdown
+#sass:
+#  style: compressed

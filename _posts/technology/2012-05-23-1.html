@@ -1,0 +1,77 @@
+---
+layout: page
+title: 并发操作，多线程的替代方案
+modified:
+categories: [technology]
+excerpt:
+tags: [object-c]
+image:
+feature:
+---
+
+在iOS中涉及到多线程操作时，常用两种解决方案，一种是C提供的GCD，另一种是OC提供的NSOperation。<br /><br />
+
+<h3>1、NSOperation Queue：</h3><br />
+
+        <pre><code>
+
+cocoa封装的dispatch queue，可以创建任务间依懒特性(可跨QUEUE)、可以设置优先级、通过KVO观察任务当前状态、中止正在执行的任务、移动已经加入队列尚未执行的任务
+提交到 Operation Queue的只能是NSOperation的子类，可以继承NSOperation自定义子类。
+
+NSInvocationOperation：使用场景为已经存在了一个方法，需要并发执行，可以直接创建其对象，而不需要自己继承NSOperation。
+NSBlockOperation：用于封装一个或多个block对象，创建时会到少添加一个block，然后再根据需要添加更多block。可监控一组操作都执行完，再执行指定操作，类似于线程连接。
+自定义继承NSOperation的子类：根据需要自定义成员变量、方法、属性，需实现其initialization方法、main方法。
+依懒关系 优于 优先级，可以设置Operation的线程优先级setThreadPriority：只在main方法范围内有效，其它所有代码仍然运行默认优先级。
+取消操作：[op1 cancel];
+设置依懒关系：[op1 addDependency:op2];
+
+NSOperationQueue常用的操作：
+一次加一组operations：addOperations:waitUntilFinished:
+加一个block：addOperationWithBlock:
+加一个普通operation：addOperation:
+等待Queue中的所有操作都完成：waitUntilAllOperationsAreFinished
+挂起/继续Queue：setSuspended:
+判断队列当前状态：[Q isSuspended];
+返回主线程的NSOperationQueue：+ (id)mainQueue;
+</code>
+</pre>
+<br />
+<h3>2、Grand Central Dispatch（GCD）：</h3><br />
+
+        <pre><code>
+
+-----------------------------------------------------------------------
+dispatch_async(dispatch_get_main_queue(),^{
+     //
+});
+-----------------------------------------------------------------------
+//分组来实现并发同时执行多个线程
+dispatch_group_t group = dispatch_group_create();
+dispatch_group_async(group, dispatch_get_global_queue(0,0),^{
+     //任务1
+});
+dispatch_group_async(group, dispatch_get_global_queue(0,0),^{
+     //任务2
+});
+dispatch_group_notify(group, dispatch_get_global_queue(0,0),^{
+     //当任务1、任务2都执行完，要执行这里
+});
+-----------------------------------------------------------------------
+
+多核下效率更高。
+基于C语言的
+private dispatch queue：
+作用：一次只能执行一个任务，然后才能执行后续任务，可以创建多个串行队列，串行队列之间是并发的，是引用计数的对像需retain。
+dispatch_queue_t q = dispatch_queue_create(“com.xiaofeng.www”,NULL);
+
+global dispatch queue：
+作用：一次尽可能多的启动任务并发执行，应用不能创建并发队列，只能使用三个已经定义好的全局并发队列，通过优先级区分。
+dispatch_queue_t q = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+dispatch_queue_t q = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0);
+dispatch_queue_t q = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0);
+
+Main dispatch queue：
+作用：全局可用的串行队列，在应用主线程中执行任务，这个queue与应用的run loop交叉执行。
+dispatch_get_main_queue
+</code>
+</pre>

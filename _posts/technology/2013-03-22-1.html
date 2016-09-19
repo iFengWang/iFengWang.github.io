@@ -1,0 +1,41 @@
+---
+layout: page
+title: OC后台长时间执行任务
+modified:
+categories: [technology]
+excerpt:
+tags: [object-c]
+image:
+feature:
+---
+
+在OC开发时，我们经常会遇到一种场景，就是需要APP在后台也能处理一些工作，如程序在后台完成上传或下载大量图片操作等。由于iOS系统的特性，在APP进入后台后，会挂起相应的线程。因此我们需要一些方法来让APP在后台保持活跃。
+<br /><br />
+1、在plist文件中新建一个Required background modes，这是一个数组，包括如下数据：
+<pre><code>
+
+App provides Voice over IP services（VOIP）
+App plays audio or streams audio/video using AirPlay（audio）
+App processes Newsstand Kit downloads（newsstand-content）
+App communicates using CoreBluetooth（bluetooth-central）
+App shares data using CoreBluetooth（bluetooth-peripheral）
+App registers for location updates（location）
+</code></pre>
+<br /><br />
+2、在程序切换到后台时执行如下操作：
+<pre>
+
+__block UIBackgroundTaskIdentifier background_task;
+background_task = [application beginBackgroundTaskWithExpirationHandler:^ {
+    [application endBackgroundTask: background_task];
+    background_task = UIBackgroundTaskInvalid;
+}];
+
+dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    while(TRUE) {
+        [NSThread sleepForTimeInterval:1];//编写执行任务代码
+    }
+    [application endBackgroundTask: background_task];
+    background_task = UIBackgroundTaskInvalid;
+});
+</pre>

@@ -1,25 +1,39 @@
 ---
-layout: index_template
-title: Frank's Blog
+layout: landing
 ---
+<!-- Banner -->
+	<section id="banner">
+		<div class="inner">
+			<h2>{{ site.title }}</h2>
+			<p>{{ site.description | markdownify }}</p>
+		</div>
+		<a href="#one" class="more scrolly">More</a>
+	</section>
 
-<!--<ul>-->
-    <!--{% for post in site.posts limit: 2 %}-->
-    <!--<li>✐ <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>..........{{ post.date | date: '%Y-%m-%d' }}</li>-->
-    <!--{% endfor %}-->
-<!--</ul>-->
+<!-- One -->
+	<section id="one" class="wrapper style1 special">
+		<div class="inner">
+			<header class="major">
+				<h2>一个码农的独白</h2>
+				<p>
+				您好，我是Frank，码农一枚。对于技术不敢说精通，只是踩过太多的坑！<br />
+				如果非要说兴趣爱好，也许看书旅行会让我感到自在逍遥. <br />
+				偶尔也会冒充下文艺青年，拔动生疏的琴弦，弹着不靠谱的童年！<br />
+				在阳光和煦的午后，一本好书加上一杯好茶，就这样开始啦. <br />
+				有些自信也有些彷徨，代码狗也不失梦想，路伸向远方，代码依然在流淌......<br />
+				</p>
+			</header>
 
+			<p>
+				<button id="technology">技术</button>
+				<button id="write">生活</button>
+				<button id="travel">旅行</button>
+			</p>
+			<!-- <ul class="icons major">
+				<li id="technology"><button>技术</button></li>
+				<li id="write"><button>生活</button></li>
+				<li id="travel"><button>旅行</button></li>
+			</ul> -->
+		</div>
+	</section>
 
-
-<div style="width:100%;font-size: 24px;margin-top: 535px;background: #FFF;opacity: 0.3;text-align: center;padding-top: 20px;padding-bottom: 20px;">您好，我是Frank，一名老码农。3年WEB开发、6年软件开发、4年移动开发，直到今天仍在不断学习中...</div>
-
-
-<!--{% for tag in site.tags %}-->
-
-    <!--{% if tag[0] == "swift" %}-->
-        <!--{% for item in tag[1] %}-->
-           <!--<a href="{{ item.url }}">{{ item.content }}</a><br />-->
-        <!--{% endfor %}-->
-    <!--{% endif %}-->
-
-<!--{% endfor %}-->

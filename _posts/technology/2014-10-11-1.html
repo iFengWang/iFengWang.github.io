@@ -1,0 +1,52 @@
+---
+layout: page
+title: 用cocospod来管理第三方框架
+modified:
+categories: [technology]
+excerpt:
+tags: [object-c]
+image:
+feature:
+---
+
+<br />
+将以前整理过的又疏理了一下放上来，便于自己或有需要的朋友们查询:<br /><br />
+
+<h2>作用：</h2>
+自动加载依懒项目<br /><br />
+
+<h2>安装：</h2>
+
+如果在国内：<br />
+$gem sources --remove https://rubygems.org/<br />
+$gem sources -a https://ruby.taobao.org/<br />
+$gem sources -l                    //查看镜像文件<br />
+-------------------------------<br />
+$gem install cocoapods<br />
+$pod setup<br />
+$pod search 第三方框架名                //搜索指定的第三方框架<br /><br />
+
+<h2>使用：</h2>
+在工程目录下创建一个Podfile文件，应该和工程文件.xcodeproj在同一目录<br />
+$touch Podfile<br />
+$vim Podfile<br />
+
+<pre>
+文件如下：
+    platform:iOS, ‘7.0'
+    pod ‘JSONKit’, ‘~> 1.4’
+    pod ‘AFNetworking’, ‘~>2.0'
+    platform:iOS
+    pod ‘Reachability’,’~>3.0.0'
+</pre>
+
+编辑完Podfile，然后运行$pod install,如果引入新框架，则改完Podfile文件后，需运行$pod update<br /><br />
+
+<h2>卸载：</h2>
+
+1. 删除工程文件夹下的Podfile、Podfile.lock及Pods文件夹<br />
+2. 删除xcworkspace文件<br />
+3. 使用xcodeproj文件打开工程，删除Frameworks组下的Pods.xcconfig及libPods.a引用<br />
+4. 在工程设置中的Build Phases下删除Check Pods Manifest.lock及Copy Pods Resources<br />
+<img src="{{ site.url }}/images/cocospod_uninstall.png" style="width: 95%" />
+
