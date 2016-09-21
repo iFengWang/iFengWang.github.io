@@ -4,34 +4,36 @@ title: 技术杂谈
 description: 今天你学习了吗? 只有勤务努力的渡过今天, 才有资格嘲笑昨天的自己!
 ---
 	
-<!-- {% for post in site.categories.technology %}
+{% for post in site.categories.technology %}
 <section>
-	<h4>✐ <a href="{{ post.url }}">{{ post.title }} - [ {{ post.date | date: '%Y-%m-%d' }} ]</a></h4>
+	<h4>✐ <a href="{{ site.url }}{{ post.url }}">{{ post.title }} - [ {{ post.date | date: '%Y-%m-%d' }} ]</a></h4>
 	<p>{{ post.excerpt | remove: '<p>' | remove: '</p>' }}</p>
 </section>
 <hr />
-{% endfor %} -->
+{% endfor %}
 
 
 
 
 
-{% for post in paginator.posts %}
+
+
+
+
+<!-- {% for post in paginator.posts %}
     <section>
 	<h4>✐ <a href="{{ post.url }}">{{ post.title }} - [ {{ post.date | date: '%Y-%m-%d' }} ]</a></h4>
 	<p>{{ post.excerpt | remove: '<p>' | remove: '</p>' }}</p>
-</section>
-{% endfor %}
+	</section>
+{% endfor %} -->
 			
 
-{% if paginator.total_pages > 1 %}
-	
-	<!-- 上一页 -->
+<!-- {% if paginator.total_pages > 1 %}
+
 	{% if paginator.previous_page %}
     <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}"上一页</a>
 	{% endif %}
 
-	<!-- 所有页面 -->
 	{% for page in (1..paginator.total_pages) %}
     {% if page == paginator.page %}
       <span class="active">{{ page }}</span>
@@ -42,10 +44,7 @@ description: 今天你学习了吗? 只有勤务努力的渡过今天, 才有资
     {% endif %}
 	{% endfor %}
 
-	<!-- 下一页 -->
 	{% if paginator.next_page %}
     <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">下一页</a>
 	{% endif %}
-
-
-{% endif %}
+{% endif %} -->
