@@ -53,7 +53,7 @@ social:
 
 # Build settings
 markdown: kramdown
-# paginate: 3
-# paginate_path: "blog/page:num"
+paginate: 3
+paginate_path: "page:num"
 #sass:
 #  style: compressed
