@@ -10,6 +10,9 @@ feature:
 ---
 
 <h3>KVC:</h3>
+<p>
+	KVC，即是指 NSKeyValueCoding, 一个非正式的 Protocol, 提供一种机制来间接访问对象的属性。KVC除了常规的存取外, 还可以做一些简单的计算, 如下所示:
+</p>
 <pre>
 <code>
 [human valueForKeyPath:@"children.@count"]；//某一属性包含的元素个数
@@ -20,7 +23,10 @@ feature:
 </code>
 </pre>
 
-<br /><h3>KVO:</h3>
+<h3>KVO:</h3>
+<p>
+	KVO 就是基于 KVC 实现的关键技术之一, 当我们设断点调试时, 会发现被监听的对象属性, 其所属的对象在监听前后会发生变化, 如我们监听对象 User 的 age 属性, 但监听时, 我们会发现其isa指针指向的并不是User, 而是一个名如 User_observer 的对象, 其实此对象是继承自User, 并且重写了age的set方法, 在其中加入了发送通知的命令.
+</p>
 <pre>
 <code>
 [stockForKVO addObserver:self forKeyPath:@"price" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:NULL];
@@ -40,5 +46,9 @@ feature:
     itemChanged=itemChanged+1;
     [self didChangeValueForKey:@"itemChanged”];
 }
+
 </code>
 </pre>
+<p>
+	正常情况下 KVO 监听的对象属性默认情况下是自动通知的, 但如果我们要手动控制这一过程, 则要实现+ (BOOL)automaticallyNotifiesObserversForKey:(NSString*)key 方法, 默认情况下此方法返回的值是YES, 即自动通知, 如果我们要手动通知某个属性的变化情况, 则要根据方法参数KEY来判断, 并返回NO.
+</p>
