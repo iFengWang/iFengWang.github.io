@@ -12,13 +12,10 @@ feature:
 
 <p>
 在iOS中涉及到多线程操作时，常用两种解决方案，一种是C提供的GCD，另一种是OC提供的NSOperation。
-<!--more-->
 </p>
-
+<!--more-->
 <h3>1、NSOperation Queue：</h3><br />
-
-        <pre><code>
-
+<pre><code>
 cocoa封装的dispatch queue，可以创建任务间依懒特性(可跨QUEUE)、可以设置优先级、通过KVO观察任务当前状态、中止正在执行的任务、移动已经加入队列尚未执行的任务
 提交到 Operation Queue的只能是NSOperation的子类，可以继承NSOperation自定义子类。
 
@@ -42,8 +39,7 @@ NSOperationQueue常用的操作：
 <br />
 <h3>2、Grand Central Dispatch（GCD）：</h3><br />
 
-        <pre><code>
-
+<pre><code>
 -----------------------------------------------------------------------
 dispatch_async(dispatch_get_main_queue(),^{
      //
