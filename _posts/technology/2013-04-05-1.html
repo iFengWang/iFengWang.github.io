@@ -13,20 +13,21 @@ feature:
 <p>
 KVO的全称是Key-Value Observing，它实现了一种机制，对所关心的属性对象添加观察者，当属性值发生变化时会得到通知，我们可以对变化做相应的处理。看过设计模式的同学应该知道，这是一种典型的观察者模式。
 KVO的最大优点就是底层框架已经支持，开发人员不需要实现属性值发生变化时发送通知的方案，这样就大大减少开发的工作量。其次，KVO框架很强大，可以支持多个观察者观察同一属性，或者一个观察者监听不同属性。
-KVO的使用比较简单，基本上都是三步：
-1.注册观察者：addObserver:forKeyPath:options:context:
+KVO的使用比较简单，基本上都是三步：</p>
 
-2.观察者中实现：observeValueForKeyPath:ofObject:change:context:
+<ol>
+    <li>注册观察者：addObserver:forKeyPath:options:context:</li>
+    <li>观察者中实现：observeValueForKeyPath:ofObject:change:context:</li>
+    <li>移除观察者：removeObserver:forKeyPath:</li>
+</ol>
 
-3.移除观察者：removeObserver:forKeyPath:
-
+<p>
 使用方法比较简单，我们这里就不详细解释了，不懂的地方可以查阅sdk，接下来我们看看KVO的实现原理，这需要大家对Objective-C的对象模型有一定了解。
 研究KVO的时候我们发现系统使用Objective-C 强大的runtime功能实现了这个功能。属性类class中并没有实现KVO通知的相关方案，而是在调用addObserver之后定义属性类的子类subclass，subclass里边实现了属性的setter方法，setter方法中实现发动通知的功能。然后subclass中实现class函数，还让返回属性类的class，再让属性类对象的isa指向subclass，这样就伪装成表面上看还是属性类自己实现的通知功能。通过原理我们可以看出， 必须使用属性方法或者setValue:forKey方法赋值才会发送通知，直接赋值是不会收到通知的。
-接下来我们写个演示程序看看KVO是怎么实现的：
+接下来我们写个演示程序看看KVO是怎么实现的,定义ClassTest类，定义三个属性x, y, z:
 </p>
 
 <pre><code>
-定义ClassTest类，定义三个属性x, y, z:
 @interface ClassTest : NSObject
 {
     int x;
@@ -54,8 +55,9 @@ KVO的使用比较简单，基本上都是三步：
     }
 }
 @end
-
+</code></pre>
 定义classMethodList函数使用Objective-C runtime函数遍历class，获得方法列表:
+<pre><code>
 static NSArray* classMethodList(Class c)
 {
     NSMutableArray* array = [NSMutableArray arrayWithCapacity:5];
@@ -69,8 +71,9 @@ static NSArray* classMethodList(Class c)
     free(methodList);
     return array;
 }
-
+</code></pre>
 定义printDescription函数打印对象的所有信息，包括函数class信息和运行时动态class信息，注意这里object_getClass(obj)和obj->isa是等价的，只不过Objective-C 2.0开始不支持直接调用isa:
+<pre><code>
 static void printDescription(NSString* name, id obj)
 {
     NSString* string = [NSString stringWithFormat:@"%@:%@\n\tclass %@\n\tobjclass %@\n\timplementmethod %@\n",
@@ -81,8 +84,9 @@ static void printDescription(NSString* name, id obj)
     [classMethodList(object_getClass(obj)) componentsJoinedByString:@" , "]];
     printf("%s", [string UTF8String]);
 }
-
+</code></pre>
 我们在main函数中定义ClassTest对象x, y, z, control，x添加对属性x的观察者，y添加对属性y的观察者，xy添加对属性x和属性y的观察者，control不添加任何观察者，然后通过printDescription打印对象的信息，最后打印setX函数的地址:
+<pre><code>
 int main(int argc, char * argv[])
 {
     @autoreleasepool {
@@ -109,7 +113,6 @@ int main(int argc, char * argv[])
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
     }
 }
-
 运行结果如下:
     x:<ClassTest: 0x8951690>
     class ClassTest
@@ -129,8 +132,10 @@ int main(int argc, char * argv[])
     implementmethod z , x , setX: , y , setY: , setZ: , observeValueForKeyPath:ofObject:change:context:
     Using NSObject method, normal setX is 0x4ae0, overrite setX is 0x1134526
     Using libobjc method, normal setX is 0x4ae0, overrite setX is 0x1134526
-
-    从打印结果我们看到，实际上系统定了一个叫做 NSKVONotifying_ClassTest的子类，子类中实现了setY: , setX: , class , dealloc , _isKVOA函数，这个_isKVOA函数应该是个私有函数，用来判断是否kvo框架生成的类，x, y, xy对象的运行时类都指向NSKVONotifying_ClassTest，通过class函数返回的类还是指向ClassTest，但是control对象的不管运行时类还是class函数返回的类都指向ClassTest。这样就验证了系统是通过定义Classtest类的子类来实现属性方法发送通知的，系统很聪明，子类中并没有实现setZ方法，因为我们并没有对属性z添加观察者。
-
-    在看看最后两行打印的结果，control对象的setX函数地址和x对象的setX函数地址是不一样的，说明setX函数被重写了。看别人之前的文章，通过NSObject方法打印control和x的setX函数地址是一样的，现在验证的结果地址却不一样，和使用runtime方法打印的结果完全一致，这个估计是新的系统底层做了修改，让使用NSObject的methodForSelector方法获得函数是子类的函数。
 </code></pre>
+<p>
+    从打印结果我们看到，实际上系统定了一个叫做 NSKVONotifying_ClassTest的子类，子类中实现了setY: , setX: , class , dealloc , _isKVOA函数，这个_isKVOA函数应该是个私有函数，用来判断是否kvo框架生成的类，x, y, xy对象的运行时类都指向NSKVONotifying_ClassTest，通过class函数返回的类还是指向ClassTest，但是control对象的不管运行时类还是class函数返回的类都指向ClassTest。这样就验证了系统是通过定义Classtest类的子类来实现属性方法发送通知的，系统很聪明，子类中并没有实现setZ方法，因为我们并没有对属性z添加观察者。
+</p>
+<p>
+    在看看最后两行打印的结果，control对象的setX函数地址和x对象的setX函数地址是不一样的，说明setX函数被重写了。看别人之前的文章，通过NSObject方法打印control和x的setX函数地址是一样的，现在验证的结果地址却不一样，和使用runtime方法打印的结果完全一致，这个估计是新的系统底层做了修改，让使用NSObject的methodForSelector方法获得函数是子类的函数。
+</p>
