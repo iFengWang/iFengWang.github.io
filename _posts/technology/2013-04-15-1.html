@@ -180,10 +180,10 @@ BOOL threadProcess2Finished =NO;
 2013-04-07 14:43:44.797 Runloop[657:14f0b] In threadProce2 count = 3.
 2013-04-07 14:43:45.798 Runloop[657:14f0b] In threadProce2 count = 4.
 2013-04-07 14:43:46.800 Runloop[657:14f0b] Exit threadProce2.
-
+</code></pre>
 
 <h2>三、Runloop简单实例：</h2>
-
+<pre><code>
 - (void)viewDidLoad{
     [superviewDidLoad];
     // Doany additional setup after loading the view, typically from a nib.
@@ -308,9 +308,10 @@ void myRunLoopObserver(CFRunLoopObserverRef observer,CFRunLoopActivity activity,
 2012-12-18 09:51:24.183 Texta[645:14807] In timerProcess count = 3.
 2012-12-18 09:51:25.185 Texta[645:14807] In timerProcess count = 4.
 2012-12-18 09:51:26.187 Texta[645:14807] run loop exit
-
+</code></pre>
 四、Runloop可以阻塞线程，等待其他线程执行后再执行。
-比如：
+<pre><code>
+
 BOOL StopFlag =NO;
 - (void)viewDidLoad
 {
@@ -359,14 +360,12 @@ BOOL StopFlag =NO;
 2012-12-18 08:50:44.247 Runloop[374:14b03] Exit newThreadProc.
 2012-12-18 08:51:00.000 Runloop[374:11303] End runloop.
 2012-12-18 08:51:00.001 Runloop[374:11303] OK
-
-从调试打印信息可以看到，while循环后执行的语句会在很长时间后才被执行。因为，改变变量StopFlag的值，runloop对象根本不知道，runloop在这个时候未被唤醒。有其他事件在某个时点唤醒了主线程，这才结束了while循环，但延缓的时长总是不定的。
-将代码稍微修改一下：
-
-[[NSRunLoopcurrentRunLoop] runMode:NSDefaultRunLoopMode beforeDate: [NSDatedateWithTimeIntervalSinceNow: 1]];
-缩短runloop的休眠时间，看起来解决了上面出现的问题。
-但这样会导致runloop被经常性的唤醒，违背了runloop的设计初衷。runloop的目的就死让你的线程在有工作的时候忙于工作，而没工作的时候处于休眠状态。
+</code></pre>
+<p>
+从调试打印信息可以看到，while循环后执行的语句会在很长时间后才被执行。因为，改变变量StopFlag的值，runloop对象根本不知道，runloop在这个时候未被唤醒。有其他事件在某个时点唤醒了主线程，这才结束了while循环，但延缓的时长总是不定的。将代码稍微修改一下：[[NSRunLoopcurrentRunLoop] runMode:NSDefaultRunLoopMode beforeDate: [NSDatedateWithTimeIntervalSinceNow: 1]];缩短runloop的休眠时间，看起来解决了上面出现的问题。但这样会导致runloop被经常性的唤醒，违背了runloop的设计初衷。runloop的目的就死让你的线程在有工作的时候忙于工作，而没工作的时候处于休眠状态。
 最后，看下下面正确的写法：
+</p>
+<pre><code>
 BOOL StopFlag =NO;
 - (void)viewDidLoad
 {
@@ -420,7 +419,6 @@ BOOL StopFlag =NO;
 2012-12-18 09:05:27.188 Runloop[410:14a03] Exit newThreadProc.
 2012-12-18 09:05:27.188 Runloop[410:11303] End runloop.
 2012-12-18 09:05:27.189 Runloop[410:11303] OK
-
-把直接设置变量，改为向主线程发送消息，唤醒runloop，延时问题解决。
 </code>
 </pre>
+把直接设置变量，改为向主线程发送消息，唤醒runloop，延时问题解决。

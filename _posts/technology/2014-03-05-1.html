@@ -43,7 +43,7 @@ feature:
     dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
 </code></pre>
 
-<h4>使用场景二: 代替NSLock</h4>
+<h4>使用场景二: 代替线程锁NSLock</h4>
 <pre><code>
 	@interface XFUser : NSObject
 	@property (nonatomic, copy) NSString *name;
@@ -55,8 +55,8 @@ feature:
 	- (instancetype)init
 	{
 	    if (self = [super init]) {
-	       _queue = dispatch_queue_create("com.person.syncQueue", DISPATCH_QUEUE_SERIAL);   		//方案一:用串行队列(单读单写)
-	       _queue = dispatch_queue_create("com.person.syncQueue", DISPATCH_QUEUE_CONCURRENT);		//方案二:用并行队列(效率高,多读单写)
+	       _queue = dispatch_queue_create("com.person.syncQueue", DISPATCH_QUEUE_SERIAL);   	//方案一:用串行队列(单读单写)
+	       _queue = dispatch_queue_create("com.person.syncQueue", DISPATCH_QUEUE_CONCURRENT);	//方案二:用并行队列(效率高,多读单写)
 	    }
 	    return self;
 	}
@@ -97,7 +97,7 @@ feature:
           dispatch_group_async(group, queue, ^{
               NSLog(@"%i",i);
               sleep(2);
-              dispatch_semaphore_signal(semaphore);							//计数 +1
+              dispatch_semaphore_signal(semaphore);					//计数 +1
           });
       }
       dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
