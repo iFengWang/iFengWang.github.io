@@ -3,20 +3,16 @@ layout: page
 title: 关于RUNLOOP
 modified:
 categories: [technology]
-excerpt:
-excerpt_separator: <!--more-->
+excerpt: Run loops 是线程相关的的基础框架的一部分。一个RunLoop就是一个事件处理 的循环,用来不停的调度工作以及处理输入事件。使用RunLoop的目的是让你的线程在有工作的时候忙于工作,而没工作的时候处于休眠状态。
 tags: [object-c]
 image:
 feature:
 ---
 
 <a href="http://blog.csdn.net/jjunjoe/article/details/8313016">原文链接</a>
-
-
 <h2>一、Runloop简介：</h2>
 
 Run loops 是线程相关的的基础框架的一部分。一个 run loop 就是一个事件处理 的循环,用来不停的调度工作以及处理输入事件。
-<!--more-->
 使用 run loop的目的是让你的线程在有工作的时候忙于工作,而没工作的时候处于休眠状态。
 Runloop还可以在loop在循环中的同时响应其他输入源，比如界面控件的按钮，手势等。
 

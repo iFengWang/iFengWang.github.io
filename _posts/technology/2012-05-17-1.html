@@ -3,8 +3,7 @@ layout: page
 title: 关于KVO和KVC的使用
 modified:
 categories: [technology]
-excerpt:
-excerpt_separator: <!--more-->
+excerpt: KVC, 即是指 NSKeyValueCoding, 一个非正式的Protocol, 提供一种机制来间接访问对象的属性。KVC除了常规的存取外, 还可以做一些简单的计算, 如下所示
 tags: [object-c]
 image:
 feature:
@@ -14,7 +13,6 @@ feature:
 <p>
 	KVC，即是指 NSKeyValueCoding, 一个非正式的 Protocol, 提供一种机制来间接访问对象的属性。KVC除了常规的存取外, 还可以做一些简单的计算, 如下所示:
 </p>
-<!--more-->
 <pre>
 <code>
 [human valueForKeyPath:@"children.@count"]；//某一属性包含的元素个数

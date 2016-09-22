@@ -4,10 +4,25 @@ title: 旅行漫记
 description: 你现在的气质里, 藏你着走过的路, 读过的书和爱过的人！
 ---
 	
-{% for post in site.categories.travel %}
+<!-- {% for post in site.categories.travel %}
 <section>
 	<h4>✐ <a href="{{ site.url }}{{ post.url }}">{{ post.title }} - [ {{ post.date | date: '%Y-%m-%d' }} ]</a></h4>
 	<p>{{ post.excerpt }}</p>
 </section>
 <hr />
-{% endfor %}
+{% endfor %} -->
+
+
+<ul class="features">
+
+	{% for post in site.categories.travel %}
+	<li>
+	<a href="{{ site.baseurl }}{{ post.url }}">
+		<h3 class="12u" style="text-align:left">✐ {{ post.title }}</h3>
+		<p style="text-align:left">{{ post.excerpt | remove: '<p>' | remove: '</p>' }}</p>
+		<h5 class="12u" style="text-align:right">---{{ post.date | date: '%Y.%m.%d' }} 于 拉萨</h5>
+	</a>
+	</li>
+	{% endfor %}
+
+</ul>

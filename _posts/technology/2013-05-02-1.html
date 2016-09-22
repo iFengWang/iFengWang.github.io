@@ -3,8 +3,7 @@ layout: page
 title: iOS之Runtime
 modified:
 categories: [technology]
-excerpt:
-excerpt_separator: <!--more-->
+excerpt: 我们常说OC是一门动态语言, 然而支撑的基础就是Runtime又称动态运行时, 就是系统在运行的时候的一些机制, 其中最主要的是消息机制. 个人理解OC只不过是利用Runtime对C语言的进一步封装, 加了一些语法糖, 让C实现了面向对象机制.
 tags: [object-c]
 image:
 feature:
@@ -12,7 +11,7 @@ feature:
 
 <h3>初识Runtime:</h3>
 <p>我们常说OC是一门动态语言, 然而支撑的基础就是Runtime又称动态运行时, 就是系统在运行的时候的一些机制, 其中最主要的是消息机制. 个人理解OC只不过是利用Runtime对C语言的进一步封装, 加了一些语法糖, 让C实现了面向对象机制. 
-<!--more-->
+
 C语言的函数调用在编译的时候就确定了调用哪个函数, 编译完成之后直接顺序执行, 无任何二义性。而OC的函数调用成为消息发送, 属于动态调用过程, 在编译的时候并不能决定真正调用哪个函数(其实在编译阶段, OC可以调用任何函数, 即使这个函数并未实现, 只要声明过就不会报错), 只有在真正运行的时候才会根据函数的名称SEL找到对应的函数入口地址IMP来调用. 我们都知道OC是面向对象的编程语言, 而C是面向过程的编程语言, C语言中是不存在'类'的概念, 那么OC中的类编译成C后是采取什么手段来实现的类机制呢? 这一过程是如何实现的呢? 我们还是通过一段CODE片段来说明吧:</p>
 <pre>
 <code>
@@ -59,7 +58,7 @@ C语言的函数调用在编译的时候就确定了调用哪个函数, 编译�
 <p>
   通过解析objc_class结构体, 我们发现Class保存的是一个类对象, 但其实就是objc_class的指针. 在objc_class中也有一个类型为Class的成员变量isa, 在这里它指向的是metaclass, 即元类, 也就是静态类(存放以+开头的方法), 注意: 所有metaclass中isa指针都指向 根metaclass, 而 根metaclass则指向自身. Root metaclass是通过继承Root class产生的。与root class结构体成员一致, 也就是前面提到的结构体. 不同的是Root metaclass的isa指针指向自身. 下面的图很好的描述了类和对象的继续关系:
 </p> 
-<img src="{{ site.baseurl }}/images/runtime1.png" style="width: 95%" />
+<img src="{{ site.baseurl }}/images/posts/runtime1.png" style="width: 95%" />
 <p>结构体中的ivars、methodList、cache、protocols同理也都是结构体, 我就不再进一步解析了, 有兴趣的同学可以自己去看看, ivars、methodList、cache、protocols分别存放了当前类的成员变量、方法、缓存(类的一种优化手段,使用的方法会被缓存,方便下次调用)、协议, 那我们是不是就可以结使我们的使用场景, 如在归档或解析JSON编解码时来遍历类的成员变量属性方法等, 然后与模型的属性相对应赋值了, 其实有很多应用场景可以应用, 大家可以举一反三, 开拓思路. </p>
 <pre>
 <code>

@@ -3,15 +3,13 @@ layout: page
 title: 用cocospod来管理第三方框架
 modified:
 categories: [technology]
-excerpt:
-excerpt_separator: <!--more-->
+excerpt: 在iOS开发中, 使用的第三方框架现在大部分都是通过cocospod引用管理的, 这省去了开发者以前引入框架时的繁琐步骤, 使用cocospod来管理第三方框架方便简捷, 下面我们就来了解一下具体使用方法
 tags: [object-c]
 image:
 feature:
 ---
 
 将以前整理过的又疏理了一下放上来，便于自己或有需要的朋友们查询:
-<!--more-->
 
 <h2>作用：</h2>
 自动加载依懒项目<br /><br />
@@ -49,5 +47,5 @@ $vim Podfile<br />
 2. 删除xcworkspace文件<br />
 3. 使用xcodeproj文件打开工程，删除Frameworks组下的Pods.xcconfig及libPods.a引用<br />
 4. 在工程设置中的Build Phases下删除Check Pods Manifest.lock及Copy Pods Resources<br />
-<img src="{{ site.baseurl }}/images/cocospod_uninstall.png" style="width: 90%" />
+<img src="{{ site.baseurl }}/images/posts/cocospod_uninstall.png" style="width: 90%" />
 

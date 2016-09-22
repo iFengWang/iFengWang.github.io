@@ -16,24 +16,24 @@ layout: landing
 			<header class="major">
 				<h2>一个码农的独白</h2>
 				<p>
-				您好，我是Frank，码农一枚。对于技术不敢说精通，只是踩过太多的坑！<br />
-				如果非要说兴趣爱好，也许看书旅行会让我感到自在逍遥. <br />
-				偶尔也会冒充下文艺青年，拔动生疏的琴弦，弹着不靠谱的童年！<br />
-				在阳光和煦的午后，一本好书加上一杯好茶，就这样开始啦. <br />
-				有些自信也有些彷徨，代码狗也不失梦想，路伸向远方，代码依然在流淌......<br />
+				您好，我是Frank，码农一枚。对于技术不敢说精通，只是踩过太多的坑！<br /><br />
+				如果非要说兴趣爱好，也许看书旅行会让我感到自在逍遥. <br /><br />
+				偶尔也会冒充下文艺青年，拔动生疏的琴弦，弹着不靠谱的童年！<br /><br />
+				在阳光和煦的午后，一本好书加上一杯好茶，就这样开始啦. <br /><br />
+				有些自信也有些彷徨，代码狗也不失梦想，路伸向远方，代码依然在流淌......
 				</p>
 			</header>
+			<ul class="actions">
+				<!-- <button id="technology">技术</button>
+				<button id="write">生活</button> 
+				<button id="travel">旅行</button> -->
 
-			<p>
-				<button id="technology">技术</button>
-				<button id="write">生活</button>
-				<button id="travel">旅行</button>
-			</p>
-			<!-- <ul class="icons major">
-				<li id="technology"><button>技术</button></li>
-				<li id="write"><button>生活</button></li>
-				<li id="travel"><button>旅行</button></li>
-			</ul> -->
+				{% for link in site.data.navigation %}
+	            <li><a href="{{ site.baseurl }}{{ link.url }}" class="button">✧{{ link.title }}</a></li>
+	            {% endfor %}
+
+
+			</ul>
 		</div>
 	</section>
 

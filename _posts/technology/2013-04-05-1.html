@@ -3,17 +3,15 @@ layout: page
 title: 理解KVO的底层实现原理
 modified:
 categories: [technology]
-excerpt:
-excerpt_separator: <!--more-->
+excerpt: KVO的全称是Key-Value Observing，它实现了一种机制，对所关心的属性对象添加观察者，当属性值发生变化时会得到通知，我们可以对变化做相应的处理。看过设计模式的同学应该知道，这是一种典型的观察者模式。
 tags: [object-c]
 image:
 feature:
 ---
 
 <a href="http://www.it165.net/pro/html/201403/11117.html">原文链接</a>
-
+<p>
 KVO的全称是Key-Value Observing，它实现了一种机制，对所关心的属性对象添加观察者，当属性值发生变化时会得到通知，我们可以对变化做相应的处理。看过设计模式的同学应该知道，这是一种典型的观察者模式。
-<!--more-->
 KVO的最大优点就是底层框架已经支持，开发人员不需要实现属性值发生变化时发送通知的方案，这样就大大减少开发的工作量。其次，KVO框架很强大，可以支持多个观察者观察同一属性，或者一个观察者监听不同属性。
 KVO的使用比较简单，基本上都是三步：
 1.注册观察者：addObserver:forKeyPath:options:context:
@@ -25,6 +23,7 @@ KVO的使用比较简单，基本上都是三步：
 使用方法比较简单，我们这里就不详细解释了，不懂的地方可以查阅sdk，接下来我们看看KVO的实现原理，这需要大家对Objective-C的对象模型有一定了解。
 研究KVO的时候我们发现系统使用Objective-C 强大的runtime功能实现了这个功能。属性类class中并没有实现KVO通知的相关方案，而是在调用addObserver之后定义属性类的子类subclass，subclass里边实现了属性的setter方法，setter方法中实现发动通知的功能。然后subclass中实现class函数，还让返回属性类的class，再让属性类对象的isa指向subclass，这样就伪装成表面上看还是属性类自己实现的通知功能。通过原理我们可以看出， 必须使用属性方法或者setValue:forKey方法赋值才会发送通知，直接赋值是不会收到通知的。
 接下来我们写个演示程序看看KVO是怎么实现的：
+</p>
 
 <pre><code>
 定义ClassTest类，定义三个属性x, y, z:
