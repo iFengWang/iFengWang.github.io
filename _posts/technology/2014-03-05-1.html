@@ -1,0 +1,108 @@
+---
+layout: page
+title: iOS开发之GCD
+modified:
+categories: [technology]
+excerpt: 
+excerpt_separator: <!--more-->
+tags: [object-c]
+image:
+feature:
+---
+
+<p>
+做iOS开发, 一个绕不开的问题就是关于GCD的使用, 深入理解GCD可以让我们的程序质量性能有很大的提升, 也是一个初级程序员的必经进阶之路. 那么GCD是什么呢? GCD 全称:Grand Central Dispatch, 是一套低层API, 提供了一种新的方法来进行并发程序编写, 在iOS4.0 之后被引入. OC中的NSOperationQueue也是在其之上的封装, 而GCD比之NSOpertionQueue更底层更高效. 除了并发控制外, GCD还提供了很多重要功能, 如:mach ports进进线程/进程间通信、信号量、监视内部及外部事件等. 
+</p>
+<!--more-->
+<h4>与传统线程相比GCD的优势有:</h4>
+<ul>
+	<li>易用: GCD比之thread跟简单易用。由于GCD基于workUnit而非像thread那样基于运算，所以GCD可以控制诸如等待任务结束、监视文件描述符、周期执行代码以及工作挂起等任务。基于block的血统导致它能极为简单得在不同代码作用域之间传递上下文。</li>
+	<li>效率: GCD被实现得如此轻量和优雅，使得它在很多地方比之专门创建消耗资源的线程更实用且快速。这关系到易用性：导致GCD易用的原因有一部分在于你可以不用担心太多的效率问题而仅仅使用它就行了。</li>
+	<li>性能: GCD自动根据系统负载来增减线程数量，这就减少了上下文切换以及增加了计算效率。</li>
+</ul>
+
+<h4>GCD中的队列有3种:</h4>
+<ul>
+	<li>全局并行队列: 进程中存在三个全局队列：高、默认、低三个优先级队列。通过dispatch_get_global_queue函数传入优先级来访问相应队列. </li>
+	<li>串行队列: 是由用户创建的队列, 通过dispatch_queue_create函数来创建. </li>
+	<li>主线程队列: 也是一个串行队列, dispatch_get_main_queue()获得, 是与主线程相关的. </li>
+</ul>
+
+<h4>使用场景一: 并行执行一批任务后,触发一个动作</h4>
+<pre><code>
+	dispatch_group_t group = dispatch_group_create();
+    dispatch_group_async(group, dispatch_get_global_queue(0, 0), ^{
+        //任务1
+    });
+    dispatch_group_async(group, dispatch_get_global_queue(0, 0), ^{
+        //任务2
+    });
+    dispatch_group_notify(group, dispatch_get_global_queue(0, 0), ^{
+        //当 任务1 和 任务2 都执行完后, 会执行此任务
+    });
+    dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
+</code></pre>
+
+<h4>使用场景二: 代替NSLock</h4>
+<pre><code>
+	@interface XFUser : NSObject
+	@property (nonatomic, copy) NSString *name;
+	@end
+
+	static NSString *_name;
+	static dispatch_queue_t _queue;
+	@implementation XFUser
+	- (instancetype)init
+	{
+	    if (self = [super init]) {
+	       _queue = dispatch_queue_create("com.person.syncQueue", DISPATCH_QUEUE_SERIAL);   		//方案一:用串行队列(单读单写)
+	       _queue = dispatch_queue_create("com.person.syncQueue", DISPATCH_QUEUE_CONCURRENT);		//方案二:用并行队列(效率高,多读单写)
+	    }
+	    return self;
+	}
+
+	- (void)setName:(NSString *)name
+	{
+		//对应方案一,串行队列使用
+	    dispatch_sync(_queue, ^{
+	        _name = [name copy];
+	    });
+
+		//对应方案二,并行队列使用,在并发队列中barrier block是单独串行执行的, 其它block是并行执行的
+		dispatch_barrier_async(_queue, ^{
+        	_name = [name copy];
+    	});
+
+	}
+
+	- (NSString *)name
+	{
+	    __block NSString *tempName;
+	    dispatch_sync(_queue, ^{
+	        tempName = _name;
+	    });
+	    return tempName;
+	}
+	@end
+</code></pre>
+
+<h4>使用场景三: 信号量</h4>
+<pre><code>
+	- dispatch_group_t group = dispatch_group_create();
+      dispatch_semaphore_t semaphore = dispatch_semaphore_create(10);
+      dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+      for (int i = 0; i < 100; i++)
+      {
+          dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);		//计数 -1
+          dispatch_group_async(group, queue, ^{
+              NSLog(@"%i",i);
+              sleep(2);
+              dispatch_semaphore_signal(semaphore);							//计数 +1
+          });
+      }
+      dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
+</code></pre>
+<p>
+	创建了一个初使值为10的semaphore，每一次for循环都会创建一个新的线程，线程结束的时候会发送一个信号，线程创建之前会信号等待，所以当同时创建了10个线程之后，for循环就会阻塞，等待有线程结束之后会增加一个信号才继续执行，如此就形成了对并发的控制，如上就是一个并发数为10的一个线程队列. 关于GCD的使用还有很多, 今天先写到这, 以后慢慢补上.
+</p>
+
