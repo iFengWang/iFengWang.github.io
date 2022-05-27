@@ -3,8 +3,7 @@
 
 # Site settings
 title: Frank's Blog
-description: |
-生活不是眼前的苟且, <br />还有诗和远方的田野,<br />  你赤手空拳来到这世界, <br />为找到那片海不顾一切!<br />
+description: 生活不是眼前的苟且, <br />还有诗和远方的田野,<br />  你赤手空拳来到这世界, <br />为找到那片海不顾一切!<br />
 owner: Frank Wang # or company name
 first_published: 2012 # if migrating another site, the year of your first publish
 email: guangfeng.w@gmail.com
