@@ -1,41 +1,42 @@
 ---
 layout: landing
 ---
+
 <!-- Banner -->
-	<section id="banner">
-		<div class="inner">
-			<h2>{{ site.title }}</h2>
-			{{ site.description | markdownify }}
-		</div>
-		<a href="#one" class="more scrolly">More</a>
-	</section>
+<section id="banner">
+  <div class="inner">
+    <h2>{{ site.title }}</h2>
+    <h5>{{ site.description | markdownify }}</h5>
+  </div>
+  <a href="#one" class="more scrolly">More</a>
+</section>
 
 <!-- One -->
-	<section id="one" class="wrapper style1 special">
-		<div class="inner">
-			<header class="major">
-				<h2>一个码农的独白</h2>
-				<p>
-				您好，我是Frank，码农一枚。对于技术不敢说精通，只是踩过太多的坑！<br /><br />
-				如果非要说兴趣爱好，也许看书旅行会让我感到自在逍遥. <br /><br />
-				偶尔也会冒充下文艺青年，拔动生疏的琴弦，弹着不靠谱的童年！<br /><br />
-				在阳光和煦的午后，一本好书加上一杯好茶，就这样开始啦. <br /><br />
-				有些自信也有些彷徨，代码狗亦不失梦想，路伸向远方，代码依然在流淌......
-				</p>
-			</header>
-			<ul class="actions">
+<section id="one" class="wrapper style1 special">
+  <div class="inner">
+    <header class="major">
+      <h2>一个码农的独白</h2>
+      <p>
+        您好，我是Frank，码农一枚。对于技术不敢说精通，只是踩过太多的坑！<br /><br />
+        如果非要说兴趣爱好，也许看书旅行会让我感到自在逍遥. <br /><br />
+        偶尔也会冒充下文艺青年，拔动生疏的琴弦，弹着不靠谱的童年！<br /><br />
+        在阳光和煦的午后，一本好书加上一杯好茶，就这样开始啦. <br /><br />
+        有些自信也有些彷徨，代码狗亦不失梦想，路伸向远方，代码依然在流淌......
+      </p>
+    </header>
+    <ul class="actions">
+      {% for link in site.data.navigation %}
+      <li>
+        <a href="{{ site.baseurl }}{{ link.url }}" class="button"
+          >✧{{ link.title }}</a
+        >
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
 
-				{% for link in site.data.navigation %}
-	            <li><a href="{{ site.baseurl }}{{ link.url }}" class="button">✧{{ link.title }}</a></li>
-	            {% endfor %}
-
-			</ul>
-		</div>
-	</section>
-
-
-	<!-- 本启预览: jekyll serve -->
-	<!-- 编译到指定地方: jekyll build --destination <destination> -->
-	<!-- 编译到指定文件夹: jekyll build --source <source> --destination <destination> -->
-	<!-- 编译好后自动监听文件变化: jekyll build --watch -->
-
+<!-- 本启预览: jekyll serve -->
+<!-- 编译到指定地方: jekyll build --destination <destination> -->
+<!-- 编译到指定文件夹: jekyll build --source <source> --destination <destination> -->
+<!-- 编译好后自动监听文件变化: jekyll build --watch -->
