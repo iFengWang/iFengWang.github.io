@@ -27,8 +27,8 @@ $baseurl: '{{ site.baseurl }}/images';
 	}
 
 	.mylogo {
-		width: 75px;
-		height: 75px;
+		width: 80px;
+		height: 80px;
 	}
 
 	@include skel-breakpoints((
