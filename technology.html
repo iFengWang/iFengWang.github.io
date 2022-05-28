@@ -3,24 +3,16 @@ layout: list
 title: 技术杂谈
 description: 只有勤奋努力的渡过今天, 才有资格嘲笑昨天的自己!
 ---
-	
+
 {% for post in site.categories.technology %}
 <section>
-	<a href="{{ site.baseurl }}{{ post.url }}">
-		<h4>✐ {{ post.title }} - [ {{ post.date | date: '%Y-%m-%d' }} ]</h4>
-		<p>{{ post.excerpt | remove: '<p>' | remove: '</p>' }}</p>
-	</a>
+  <a href="{{ site.baseurl }}{{ post.url }}">
+    <h4>✐ {{ post.title }} - [ {{ post.date | date: '%Y-%m-%d' }} ]</h4>
+    <h5>{{ post.excerpt }}</h5>
+  </a>
 </section>
 <hr />
 {% endfor %}
-
-
-
-
-
-
-
-
 
 <!-- {% for post in paginator.posts %}
     <section>
@@ -28,7 +20,6 @@ description: 只有勤奋努力的渡过今天, 才有资格嘲笑昨天的自�
 	<p>{{ post.excerpt | remove: '<p>' | remove: '</p>' }}</p>
 	</section>
 {% endfor %} -->
-			
 
 <!-- {% if paginator.total_pages > 1 %}
 
