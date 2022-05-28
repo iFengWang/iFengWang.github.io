@@ -6,10 +6,12 @@ description: 只有勤奋努力的渡过今天, 才有资格嘲笑昨天的自�
 
 {% for post in site.categories.technology %}
 <section>
-  <a href="{{ site.baseurl }}{{ post.url }}">
-    <h4>✐ {{ post.title }} - [ {{ post.date | date: '%Y-%m-%d' }} ]</h4>
-    <h5>{{ post.excerpt }}</h5>
-  </a>
+  <h4>
+    <a href="{{ site.baseurl }}{{ post.url }}"
+      >✐ {{ post.title }} - [ {{ post.date | date: '%Y-%m-%d' }} ]</a
+    >
+  </h4>
+  <h5><a href="{{ site.baseurl }}{{ post.url }}">{{ post.excerpt }}</a></h5>
 </section>
 <hr />
 {% endfor %}
