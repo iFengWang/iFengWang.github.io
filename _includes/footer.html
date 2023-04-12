@@ -12,19 +12,37 @@
     {% endif %}
     {% endfor %} -->
 
-    <li><a target="_blank" href="https://github.com/ifengwang"><img src="{{ site.baseurl }}/images/github.png" style="width:25px;height:25px;" /></a></li>
-    <li><a target="_blank" href="https://linkedin.com/in/广峰-王-740391b4"><img src="{{ site.baseurl }}/images/linkedin.png" style="width:25px;height:25px;" /></a></li>
-    <li><a target="_blank" href="https://facebook.com/guangfeng.w"><img src="{{ site.baseurl }}/images/facebook.png" style="width:25px;height:25px;" /></a></li>
+    <li>
+      <a target="_blank" href="https://github.com/ifengwang"
+        ><img
+          src="{{ site.baseurl }}/images/github.png"
+          style="width: 25px; height: 25px"
+      /></a>
+    </li>
+    <li>
+      <a target="_blank" href="https://linkedin.com/in/广峰-王-740391b4"
+        ><img
+          src="{{ site.baseurl }}/images/linkedin.png"
+          style="width: 25px; height: 25px"
+      /></a>
+    </li>
+    <li>
+      <a target="_blank" href="https://facebook.com/guangfeng.w"
+        ><img
+          src="{{ site.baseurl }}/images/facebook.png"
+          style="width: 25px; height: 25px"
+      /></a>
+    </li>
   </ul>
   <ul class="copyright">
-    <li>&copy; {% assign thisyear = site.time | date: "%Y" %}
-    {% if site.first_published %}
-      {% capture diff %}{{ site.first_published | minus:thisyear }}{% endcapture %}
-      {% if diff contains '-' %}{{ site.first_published }} ~ {% endif %}
-    {% endif %}
-    {{ thisyear }}
-    {% if site.owner %}{{ site.owner }}{% else %}{{ site.title }}{% endif %}</li>
+    <li>
+      &copy; {% assign thisyear = site.time | date: "%Y" %} {% if
+      site.first_published %} {% capture diff %}{{ site.first_published |
+      minus:thisyear }}{% endcapture %} {% if diff contains '-' %}{{
+      site.first_published }} ~ {% endif %} {% endif %} {{ thisyear }} {% if
+      site.owner %}{{ site.owner }}{% else %}{{ site.title }}{% endif %}
+    </li>
     <li>Email: {{ site.email }}</li>
-    <li>QQ: {{ site.qq }}</a></li>
+    <!-- <li>QQ: {{ site.qq }}</a></li> -->
   </ul>
 </footer>
