@@ -12,16 +12,15 @@ $fonturl: '{{ site.baseurl }}/css';
 
 @font-face {
 	font-family: 'xingkai';
-	// src: url('/css/xingkai.ttf');
 	src: url('#{$fonturl}/xingkai.ttf');
 	font-weight: normal;
  	font-style: normal;
 }
 
-.font-xingkai {
-	font-family: 'xingkai';
-	text-align: left;
-}
+	.font-xingkai {
+		font-family: 'xingkai';
+		font-size: large;
+	}
 
 	.mylogo {
 		width: 80px;
