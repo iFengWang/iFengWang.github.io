@@ -475,20 +475,23 @@ $fonturl: '{{ site.baseurl }}/css';
 
 	/* 瀑布流样式 */
 	.gallery {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-		grid-gap: 20px;
-		margin: 20px;
+		margin: 0 auto;
+		width: 100wh;
+		overflow: auto;
+		column-count: 3;
+		column-gap: 10px;
+		column-width: 250px;
 	}
 
 	.gallery-item {
-		position: relative;
+		break-inside: avoid;
+		background: red;
+		margin: 0px 0px 10px 0px;
 	}
 
 	.gallery-item img {
-		display: block;
 		width: 100%;
-		height: auto;
+		vertical-align: middle;
 	}
 
 /* Icon */
