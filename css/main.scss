@@ -480,14 +480,15 @@ $fonturl: '{{ site.baseurl }}/css';
 		overflow: auto;
 		column-count: 3;
 		column-gap: 10px;
-		// column-width: 250px;
+		column-width: 250px;
 	}
 
 	.gallery-item {
 		break-inside: avoid;
-		background: red;
+		background: rgb(200, 200, 200);
 		margin: 0px 0px 10px 0px;
 		// box-shadow: 1px 1px 2px rgb(45, 45, 45);
+		padding: 10px;
 	}
 
 	.gallery-item img {
