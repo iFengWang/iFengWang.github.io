@@ -455,13 +455,6 @@ $fonturl: '{{ site.baseurl }}/css';
 /* Box */
 
 	.box {
-		display: flex;
-		flex-direction: column;
-		justify-content: flex-start;
-		align-items: flex-start;
-		flex-wrap: wrap;
-		align-content: flex-start;
-
 		border-radius: 3px;
 		border: solid 2px _palette(border);
 		margin-bottom: _size(element-margin);
@@ -478,6 +471,15 @@ $fonturl: '{{ site.baseurl }}/css';
 			border-radius: 0;
 			padding: 0;
 		}
+	}
+
+	.flexlayout {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: flex-start;
+		flex-wrap: wrap;
+		align-content: center;
 	}
 
 /* Icon */
