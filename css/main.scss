@@ -19,12 +19,16 @@ $fonturl: '{{ site.baseurl }}/css';
 
 	.font-xingkai {
 		font-family: 'xingkai';
-		font-size: 22px;
+		font-size: 25px;
 	}
 
 	.mylogo {
 		width: 80px;
 		height: 80px;
+	}
+
+	.no-wrap {
+		white-space: nowrap;
 	}
 
 	@include skel-breakpoints((
