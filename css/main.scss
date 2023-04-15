@@ -12,12 +12,33 @@ $fonturl: '{{ site.baseurl }}/css';
 
 @font-face {
 	font-family: 'xingkai';
-	src: url('#{$fonturl}/xingkai2.ttf');
+	src: url('#{$fonturl}/xingkai.ttf');
 	font-weight: normal;
  	font-style: normal;
 }
 
-	.font-xingkai {
+@font-face {
+	font-family: 'zhengdao';
+	src: url('#{$fonturl}/zhengdao.ttf');
+	font-weight: normal;
+ 	font-style: normal;
+}
+
+@font-face {
+	font-family: 'yunfeng';
+	src: url('#{$fonturl}/yunfeng.ttf');
+	font-weight: normal;
+ 	font-style: normal;
+}
+
+@font-face {
+	font-family: 'suifeng';
+	src: url('#{$fonturl}/suifeng.ttf');
+	font-weight: normal;
+ 	font-style: normal;
+}
+
+	.font-panel {
 		font-family: 'xingkai';
 		font-size: 25px;
 	}
