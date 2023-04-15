@@ -19,6 +19,7 @@ $fonturl: '{{ site.baseurl }}/css';
 
 	.font-xingkai {
 		font-family: 'xingkai';
+		font-size: 22px;
 	}
 
 	.mylogo {
@@ -1570,6 +1571,7 @@ $fonturl: '{{ site.baseurl }}/css';
 		}
 
 		.more {
+			border-radius: 50%;
 			@include vendor('transition', ('transform 0.75s ease', 'opacity 0.75s ease'));
 			@include vendor('transition-delay', '3.5s');
 			@include vendor('transform', 'translateY(0)');
