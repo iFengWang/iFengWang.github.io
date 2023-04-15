@@ -24,20 +24,6 @@ $fonturl: '{{ site.baseurl }}/css';
  	font-style: normal;
 }
 
-@font-face {
-	font-family: 'yunfeng';
-	src: url('#{$fonturl}/yunfeng.ttf');
-	font-weight: normal;
- 	font-style: normal;
-}
-
-@font-face {
-	font-family: 'suifeng';
-	src: url('#{$fonturl}/suifeng.ttf');
-	font-weight: normal;
- 	font-style: normal;
-}
-
 	.font-p {
 		font-family: 'xingkai';
 		font-size: 25px;
