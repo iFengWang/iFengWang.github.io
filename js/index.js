@@ -1,1 +1,3 @@
-document.getElementById("vid").play();
+let vid = document.getElementById("vid");
+vid.muted = false;
+vid.play();
