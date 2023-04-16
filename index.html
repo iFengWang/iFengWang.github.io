@@ -38,6 +38,7 @@ layout: landing
           controls
           autoplay
           style="outline: none; width: 100%; height: 100%"
+          id="vid"
         ></video>
       </div>
     </header>
@@ -52,6 +53,10 @@ layout: landing
     </ul>
   </div>
 </section>
+
+<script>
+  document.getElementById("vid").play();
+</script>
 
 <!-- 开启预览: jekyll serve -->
 <!-- 编译到指定地方: jekyll build --destination <destination> -->
