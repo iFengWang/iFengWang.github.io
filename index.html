@@ -30,6 +30,27 @@ layout: landing
         有些自信也有些彷徨，代码狗亦不失梦想.<br />
         路伸向远方，代码依然在流淌......<br />
       </div>
+
+      <!-- <div
+        style="
+          width: 330px;
+          height: 410px;
+          margin: 0 auto;
+          border: solid 10px #cccccc;
+          border-radius: 5px;
+        "
+      >
+        <video
+          id="vid"
+          src="{{ site.baseurl }}/images/posts/v5.mp4"
+          controls
+          autoplay
+          preload="auto"
+          style="outline: none; width: 100%; height: 100%"
+          onload="play(this.id)"
+        ></video> 
+        <script src="/js/index.js"></script>
+     </div> -->
     </header>
     <ul class="actions">
       {% for link in site.data.navigation %}
@@ -42,7 +63,6 @@ layout: landing
     </ul>
   </div>
 </section>
-<script src="/blog/js/index.js"></script>
 
 <!-- 开启预览: jekyll serve -->
 <!-- 编译到指定地方: jekyll build --destination <destination> -->

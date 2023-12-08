@@ -8,7 +8,7 @@ owner: Frank Wang # or company name
 first_published: 2012 # if migrating another site, the year of your first publish
 email: guangfeng.w@gmail.com
 qq: 37158835
-baseurl: "/" # the subpath of your site, e.g. /blog
+baseurl: "" # the subpath of your site, e.g.
 url: "http://ifengwang.github.io" # the base hostname & protocol for your site
 social:
   github: https://github.com/ifengwang

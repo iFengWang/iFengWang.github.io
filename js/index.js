@@ -1,3 +1,5 @@
-let vid = document.getElementById("vid");
-vid.muted = false;
-vid.play();
+function autoplay(id) {
+  let ele = document.getElementById(id);
+  // ele.muted = false;
+  ele.play();
+}
