@@ -15,7 +15,8 @@
     href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}"
   />
   <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}" />
-  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="shortcut icon" href="{{ "/favicon.ico" | prepend: site.baseurl |
+  prepend: site.url }}" />
   <!--[if lte IE 8
     ]><link rel="stylesheet" href="{{ "/css/ie8.css" | prepend: site.baseurl }}"
     /><!
