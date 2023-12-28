@@ -95,3 +95,15 @@
     }
   });
 })(jQuery);
+
+function music(id) {
+  let ele = document.getElementById(id);
+
+  if (ele.paused) {
+    // ele.muted = false;
+    ele.play();
+  } else {
+    // ele.muted = false;
+    ele.pause();
+  }
+}

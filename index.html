@@ -7,19 +7,38 @@ layout: landing
   <div class="inner">
     <div class="circle">
       <div class="ring">
-        <a href="" class="menuItem fa fa-home fa-2x"></a>
+        <a
+          href="technology.html"
+          title="技术杂谈"
+          class="menuItem fa fa-rocket fa-2x"
+        ></a>
+        <a
+          href="life.html"
+          title="生活点滴"
+          class="menuItem fa fa-leaf fa-2x"
+        ></a>
+        <a
+          href="travel.html"
+          title="旅行漫记"
+          class="menuItem fa fa-globe fa-2x"
+        ></a>
+        <a href="#" class="menuItem fa fa-play fa-2x"></a>
+        <a
+          href="#"
+          class="menuItem fa fa-music fa-2x"
+          onclick="music('aid')"
+        ></a>
         <a href="" class="menuItem fa fa-comment fa-2x"></a>
-        <a href="" class="menuItem fa fa-play fa-2x"></a>
-        <a href="" class="menuItem fa fa-camera fa-2x"></a>
-        <a href="" class="menuItem fa fa-music fa-2x"></a>
-        <a href="" class="menuItem fa fa-user fa-2x"></a>
-        <a href="" class="menuItem fa fa-trash-o fa-2x"></a>
-        <a href="" class="menuItem fa fa-star fa-2x"></a>
       </div>
       <a href="#" class="center"
         ><img src="{{ site.baseurl }}/images/logo.png" class="mylogo"
       /></a>
     </div>
+    <audio
+      id="aid"
+      src="{{ site.baseurl }}/images/jjzs.mp3"
+      preload="auto"
+    ></audio>
     <div><h2>{{ site.title }}</h2></div>
     <div class="font-p">
       <span class="no-wrap">生活不是眼前的苟且，</span><br />
@@ -64,7 +83,6 @@ layout: landing
           style="outline: none; width: 100%; height: 100%"
           onload="play(this.id)"
         ></video> 
-        <script src="/js/index.js"></script>
      </div> -->
     </header>
     <ul class="actions">
