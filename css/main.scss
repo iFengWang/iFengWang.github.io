@@ -160,6 +160,12 @@ $fonturl: '{{ site.baseurl }}/css';
 				@include vendor('transition', 'none !important');
 			}
 		}
+
+		iframe {
+			width: 100%;
+			-webkit-aspect-ratio: 5/3;
+			aspect-ratio: 5/3;
+		}
 	}
 
 	body, input, select, textarea {
