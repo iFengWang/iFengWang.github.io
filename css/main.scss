@@ -127,6 +127,18 @@ $fonturl: '{{ site.baseurl }}/css';
 		height: 80px;
 	}
 
+	.mylogo-small {
+		width: 30px;
+		height: 30px;
+		margin: 10px;
+	}
+
+	.title-layout {
+		display: flex;
+		align-items: center;
+		text-align: center;
+	}
+
 	.no-wrap {
 		white-space: nowrap;
 	}
@@ -1533,7 +1545,7 @@ $fonturl: '{{ site.baseurl }}/css';
 		h1 {
 			@include vendor('transition', 'opacity #{_duration(transitions)} ease');
 			height: inherit;
-			left: 1.25em;
+			left: 2.75em;
 			line-height: inherit;
 			position: absolute;
 			top: 0;
@@ -1615,7 +1627,7 @@ $fonturl: '{{ site.baseurl }}/css';
 		&.alt {
 			background: transparent;
 
-			h1 {
+			h1, img {
 				@include vendor('pointer-events', 'none');
 				opacity: 0;
 			}
