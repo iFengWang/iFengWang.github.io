@@ -1956,6 +1956,13 @@ $fonturl: '{{ site.baseurl }}/css';
 			}
 		}
 
+		.total_panel {
+			color: _palette(fg-light);
+			font-size: 0.8em;
+			letter-spacing: _size(letter-spacing-alt);
+			list-style: none;
+		}
+
 		.copyright {
 			color: _palette(fg-light);
 			font-size: 0.8em;

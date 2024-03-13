@@ -1,17 +1,17 @@
 ---
 layout: default
 ---
-<article id="main-content">
 
+<article id="main-content">
   <header>
     <h2>{{ page.title }}</h2>
     <p>{{ page.description }}</p>
   </header>
 
   <section class="wrapper style5">
-    <div class="inner">
-      {{ content }}
+    <div class="inner">{{ content }}</div>
+    <div class="inner" style="text-align: right">
+      本文已被阅读：<span id="busuanzi_value_page_pv"></span>次
     </div>
   </section>
-
 </article>
