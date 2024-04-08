@@ -58,7 +58,7 @@ C语言的函数调用在编译的时候就确定了调用哪个函数, 编译�
 <p>
   通过解析objc_class结构体, 我们发现Class保存的是一个类对象, 但其实就是objc_class的指针. 在objc_class中也有一个类型为Class的成员变量isa, 在这里它指向的是metaclass, 即元类, 也就是静态类(存放以+开头的方法), 注意: 所有metaclass中isa指针都指向 根metaclass, 而 根metaclass则指向自身. Root metaclass是通过继承Root class产生的。与root class结构体成员一致, 也就是前面提到的结构体. 不同的是Root metaclass的isa指针指向自身. 下面的图很好的描述了类和对象的继续关系:
 </p> 
-<img src="{{ site.baseurl }}/images/posts/runtime1.png" style="width: 95%" />
+<img src="{{ site.baseurl }}/images/posts/technology/runtime1.png" style="width: 95%" />
 <p>结构体中的ivars、methodList、cache、protocols同理也都是结构体, 我就不再进一步解析了, 有兴趣的同学可以自己去看看, ivars、methodList、cache、protocols分别存放了当前类的成员变量、方法、缓存(类的一种优化手段,使用的方法会被缓存,方便下次调用)、协议, 那我们是不是就可以结使我们的使用场景, 如在归档或解析JSON编解码时来遍历类的成员变量属性方法等, 然后与模型的属性相对应赋值了, 其实有很多应用场景可以应用, 大家可以举一反三, 开拓思路. </p>
 <pre>
 <code>
