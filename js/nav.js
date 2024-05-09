@@ -6,12 +6,10 @@ for(var i = 0, l = items.length; i < l; i++) {
   items[i].style.top = (50 + 35*Math.sin(-0.5 * Math.PI - 2*(1/l)*i*Math.PI)).toFixed(4) + "%";
 }
 
-window.onload = function(e) {
-  setTimeout(() => {
-    e.preventDefault(); 
-    document.querySelector('.circle').classList.toggle('open');
-  }, 3000);
-}
+setTimeout(() => {
+  // e.preventDefault(); 
+  document.querySelector('.circle').classList.toggle('open');
+}, 3000);
 
 document.querySelector('.center').onclick = function(e) {
   e.preventDefault(); 
