@@ -1,0 +1,129 @@
+---
+layout: page
+title: 基于WebRtc的音视频实时通讯系统
+modified:
+categories: [technology]
+excerpt:
+excerpt_separator: <!--more-->
+tags: [ai]
+image:
+feature:
+---
+
+<p>
+  由于之前在国内参与过视频直播课的手机端开发，只是单纯的接收视频流，并通过在socket上自定义一些协议头，并经server端中转，来实现老师与学生端的实时交流。对音视频直播后端的实现逻辑不是很清楚。
+  来到日本后，偶然了解到了WebRtc，通过一阵子调研和实践，并通过亲自编码做了一下小DEMO，基本了解了其实现逻辑。
+</p>
+<!--more-->
+<p>
+  接下来，想做一个音视频实时交流互动的插件，可以随意挂接到任何系统平台。这样免除了很多公司，尤其日本公司，比较注意公司的内部商业信息泄露，在使用第三方音视频实时交流系统时，如ZOOM、VooV、Slack
+  等带来的顾虑。如果能使用一个开源且简单的音视频实时交流系统即可满足要求，从client到server完全由自己掌控，不用担心信息的泄露，岂不是快哉。现在已经实现了，文字聊天、表情发送、音视频通讯、电子白板
+  等基础功能，client端我是用react实现的，server端用NestJS实现的，下面是一些截图。
+</p>
+
+<div class="gallery">
+  <div class="gallery-item">
+    <img
+      src="{{ site.baseurl }}/images/posts/technology/im/webrtc/1.png"
+      alt="loading..."
+    />
+    <span>1.可显示文字聊天模式，发送表情等</span>
+  </div>
+
+  <div class="gallery-item">
+    <img
+      src="{{ site.baseurl }}/images/posts/technology/im/webrtc/2.png"
+      alt="loading..."
+    />
+    <span>2.也可开启语音视频模式，进行实时交流互动</span>
+  </div>
+
+  <div class="gallery-item">
+    <img
+      src="{{ site.baseurl }}/images/posts/technology/im/webrtc/3.png"
+      alt="loading..."
+    />
+    <span>3.提供简易操作说明</span>
+  </div>
+
+  <div class="gallery-item">
+    <img
+      src="{{ site.baseurl }}/images/posts/technology/im/webrtc/4.png"
+      alt="loading..."
+    />
+    <span>4.可以通过调色板的滑钮实时自定义颜色皮肤,可以最小化用户列表，拖拽放置在页面任意位置</span>
+  </div>
+</div>
+
+<p>
+  另外，基于音视频实时通讯系统搭建的业务，现在遍布全网。如抖音、快手等，也可做在线直播互动、医生远程就诊...。还记得10多年前，我拿着自己的商业计划书和DEMO，去创建工厂，要利用音视频实时系统
+  做网络版《非诚勿扰》时的情景。那时是利用Flash和其提供的流媒体FMS，虽然完成了业务逻辑的搭建，但性能与今天的音视频技术不可同日而语。下面是我当前要做的事情，当时年轻，光想着好玩，没有考虑太
+  多的商业模式和技术架构。
+</p>
+
+<div class="gallery">
+  <div class="gallery-item">
+    <img
+      src="{{ site.baseurl }}/images/posts/technology/im/flash/0.png"
+      alt="loading..."
+    />
+    <span>1.通过当时的QQ空间为第三方开放的应用接口接入，想着利用QQ空导流过来用户</span>
+  </div>
+
+  <div class="gallery-item">
+    <img
+      src="{{ site.baseurl }}/images/posts/technology/im/flash/1.png"
+      alt="loading..."
+    />
+    <span>2.进入后，会在地图上显示全国已经开设的房间</span>
+  </div>
+
+  <div class="gallery-item">
+    <img
+      src="{{ site.baseurl }}/images/posts/technology/im/flash/2.png"
+      alt="loading..."
+    />
+    <span>3.也可以以列表形式展示具体区域开设的房间</span>
+  </div>
+
+  <div class="gallery-item">
+    <img
+      src="{{ site.baseurl }}/images/posts/technology/im/flash/4.png"
+      alt="loading..."
+    />
+    <span>4.进入房间后，会显示同房间的其它嘉宾，也可以查看对方资料，但看不到具体联系方式</span>
+  </div>
+
+  <div class="gallery-item">
+    <img
+      src="{{ site.baseurl }}/images/posts/technology/im/flash/5.png"
+      alt="loading..."
+    />
+    <span>5.可以查看对方资料，视频介绍、相册等，但看不到具体联系方式</span>
+  </div>
+
+  <div class="gallery-item">
+    <img
+      src="{{ site.baseurl }}/images/posts/technology/im/flash/6.png"
+      alt="loading..."
+    />
+    <span>6.如果男女嘉宾成功牵手，则显示动画！</span>
+  </div>
+
+  <div class="gallery-item">
+    <img
+      src="{{ site.baseurl }}/images/posts/technology/im/flash/3.png"
+      alt="loading..."
+    />
+    <span>7.管理员默认是不展示的，负责控制房间秩序！</span>
+  </div>
+
+  <div class="gallery-item">
+    <img
+      src="{{ site.baseurl }}/images/posts/technology/im/flash/8.png"
+      alt="loading..."
+    />
+    <span>8.当年为此注册的域名和制作的网站！</span>
+  </div>
+
+</div>
