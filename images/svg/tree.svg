@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="1000" height="1000" viewBox="-500,-500,1000,1000" style="width: 100%; height: auto; font: 10px sans-serif">
+    <g fill="none" stroke="#555" stroke-opacity="0.4" stroke-width="1.5">
+      <path d="M0,0C2.204,99.976,47.595,-87.947,95.189,-175.895"></path>
+      <path d="M0,0C2.204,99.976,95.106,-30.902,190.211,-61.803"></path>
+      <path d="M0,0C2.204,99.976,91.577,40.17,183.155,80.339"></path>
+      <path d="M0,0C2.204,99.976,47.595,87.947,95.189,175.895"></path>
+      <path d="M0,0C2.204,99.976,3.306,99.945,6.613,199.891"></path>
+      <path d="M0,0C2.204,99.976,-53.303,84.61,-106.606,169.219"></path>
+      <path d="M0,0C2.204,99.976,-88.722,46.134,-177.445,92.268"></path>
+      <path d="M0,0C2.204,99.976,-98.895,-14.826,-197.79,-29.653"></path>
+      <path d="M0,0C2.204,99.976,-47.595,-87.947,-95.189,-175.895"></path>
+      <path d="M95.189,-175.895C142.784,-263.842,19.827,-299.344,26.436,-399.125"></path>
+      <path d="M95.189,-175.895C142.784,-263.842,39.568,-297.379,52.757,-396.506"></path>
+      <path d="M95.189,-175.895C142.784,-263.842,59.135,-294.114,78.847,-392.152"></path>
+      <path d="M95.189,-175.895C142.784,-263.842,78.444,-289.563,104.592,-386.084"></path>
+      <path d="M95.189,-175.895C142.784,-263.842,97.41,-283.745,129.88,-378.327"></path>
+      <path d="M95.189,-175.895C142.784,-263.842,115.95,-276.687,154.6,-368.916"></path>
+      <path d="M95.189,-175.895C142.784,-263.842,133.983,-268.419,178.644,-357.892"></path>
+      <path d="M95.189,-175.895C142.784,-263.842,151.43,-258.977,201.906,-345.303"></path>
+      <path d="M95.189,-175.895C142.784,-263.842,168.215,-248.403,224.286,-331.204"></path>
+      <path d="M95.189,-175.895C142.784,-263.842,184.264,-236.742,245.685,-315.656"></path>
+      <path d="M95.189,-175.895C142.784,-263.842,199.507,-224.046,266.01,-298.729"></path>
+      <path d="M95.189,-175.895C142.784,-263.842,213.879,-210.371,285.171,-280.495"></path>
+      <path d="M95.189,-175.895C142.784,-263.842,227.314,-195.776,303.086,-261.034"></path>
+      <path d="M95.189,-175.895C142.784,-263.842,239.756,-180.324,319.675,-240.432"></path>
+      <path d="M190.211,-61.803C285.317,-92.705,261.445,-147.127,348.594,-196.169"></path>
+      <path d="M190.211,-61.803C285.317,-92.705,270.597,-129.526,360.796,-172.702"></path>
+      <path d="M190.211,-61.803C285.317,-92.705,278.566,-111.359,371.422,-148.479"></path>
+      <path d="M190.211,-61.803C285.317,-92.705,285.317,-92.705,380.423,-123.607"></path>
+      <path d="M190.211,-61.803C285.317,-92.705,290.82,-73.646,387.76,-98.194"></path>
+      <path d="M190.211,-61.803C285.317,-92.705,295.052,-54.264,393.402,-72.352"></path>
+      <path d="M190.211,-61.803C285.317,-92.705,297.993,-34.645,397.324,-46.194"></path>
+      <path d="M183.155,80.339C274.732,120.509,299.959,4.96,399.945,6.614"></path>
+      <path d="M183.155,80.339C274.732,120.509,298.975,24.774,398.634,33.032"></path>
+      <path d="M183.155,80.339C274.732,120.509,296.684,44.479,395.579,59.305"></path>
+      <path d="M183.155,80.339C274.732,120.509,293.096,63.99,390.795,85.32"></path>
+      <path d="M183.155,80.339C274.732,120.509,288.226,83.221,384.301,110.961"></path>
+      <path d="M183.155,80.339C274.732,120.509,282.096,102.088,376.128,136.117"></path>
+      <path d="M183.155,80.339C274.732,120.509,274.732,120.509,366.309,160.678"></path>
+      <path d="M183.155,80.339C274.732,120.509,266.167,138.402,354.889,184.536"></path>
+      <path d="M183.155,80.339C274.732,120.509,256.438,155.691,341.917,207.588"></path>
+      <path d="M183.155,80.339C274.732,120.509,245.587,172.299,327.45,229.731"></path>
+      <path d="M183.155,80.339C274.732,120.509,233.663,188.153,311.551,250.871"></path>
+      <path d="M183.155,80.339C274.732,120.509,220.717,203.184,294.29,270.913"></path>
+      <path d="M183.155,80.339C274.732,120.509,206.806,217.328,275.741,289.77"></path>
+      <path d="M95.189,175.895C142.784,263.842,176.336,242.705,235.114,323.607"></path>
+      <path d="M95.189,175.895C142.784,263.842,159.91,253.829,213.213,338.438"></path>
+      <path d="M95.189,175.895C142.784,263.842,142.784,263.842,190.379,351.79"></path>
+      <path d="M95.189,175.895C142.784,263.842,125.035,272.702,166.713,363.603"></path>
+      <path d="M95.189,175.895C142.784,263.842,106.738,280.369,142.318,373.826"></path>
+      <path d="M6.613,199.891C9.919,299.836,68.827,291.998,91.77,389.331"></path>
+      <path d="M6.613,199.891C9.919,299.836,49.378,295.908,65.838,394.545"></path>
+      <path d="M6.613,199.891C9.919,299.836,29.714,298.525,39.618,398.033"></path>
+      <path d="M6.613,199.891C9.919,299.836,9.919,299.836,13.225,399.781"></path>
+      <path d="M6.613,199.891C9.919,299.836,-9.919,299.836,-13.225,399.781"></path>
+      <path d="M6.613,199.891C9.919,299.836,-29.714,298.525,-39.618,398.033"></path>
+      <path d="M6.613,199.891C9.919,299.836,-49.378,295.908,-65.838,394.545"></path>
+      <path d="M-106.606,169.219C-159.91,253.829,-87.975,286.811,-117.3,382.414"></path>
+      <path d="M-106.606,169.219C-159.91,253.829,-106.738,280.369,-142.318,373.826"></path>
+      <path d="M-106.606,169.219C-159.91,253.829,-125.035,272.702,-166.713,363.603"></path>
+      <path d="M-106.606,169.219C-159.91,253.829,-142.784,263.842,-190.379,351.79"></path>
+      <path d="M-106.606,169.219C-159.91,253.829,-159.91,253.829,-213.213,338.438"></path>
+      <path d="M-106.606,169.219C-159.91,253.829,-176.336,242.705,-235.114,323.607"></path>
+      <path d="M-106.606,169.219C-159.91,253.829,-191.991,230.52,-255.987,307.36"></path>
+      <path d="M-106.606,169.219C-159.91,253.829,-206.806,217.328,-275.741,289.77"></path>
+      <path d="M-106.606,169.219C-159.91,253.829,-220.717,203.184,-294.29,270.913"></path>
+      <path d="M-177.445,92.268C-266.167,138.402,-245.587,172.299,-327.45,229.731"></path>
+      <path d="M-177.445,92.268C-266.167,138.402,-256.438,155.691,-341.917,207.588"></path>
+      <path d="M-177.445,92.268C-266.167,138.402,-266.167,138.402,-354.889,184.536"></path>
+      <path d="M-177.445,92.268C-266.167,138.402,-274.732,120.509,-366.309,160.678"></path>
+      <path d="M-177.445,92.268C-266.167,138.402,-282.096,102.088,-376.128,136.117"></path>
+      <path d="M-197.79,-29.653C-296.684,-44.479,-293.096,63.99,-390.795,85.32"></path>
+      <path d="M-197.79,-29.653C-296.684,-44.479,-296.684,44.479,-395.579,59.305"></path>
+      <path d="M-197.79,-29.653C-296.684,-44.479,-298.975,24.774,-398.634,33.032"></path>
+      <path d="M-197.79,-29.653C-296.684,-44.479,-299.959,4.96,-399.945,6.614"></path>
+      <path d="M-197.79,-29.653C-296.684,-44.479,-299.631,-14.875,-399.508,-19.834"></path>
+      <path d="M-197.79,-29.653C-296.684,-44.479,-297.993,-34.645,-397.324,-46.194"></path>
+      <path d="M-197.79,-29.653C-296.684,-44.479,-295.052,-54.264,-393.402,-72.352"></path>
+      <path d="M-197.79,-29.653C-296.684,-44.479,-290.82,-73.646,-387.76,-98.194"></path>
+      <path d="M-197.79,-29.653C-296.684,-44.479,-285.317,-92.705,-380.423,-123.607"></path>
+      <path d="M-197.79,-29.653C-296.684,-44.479,-278.566,-111.359,-371.422,-148.479"></path>
+      <path d="M-197.79,-29.653C-296.684,-44.479,-270.597,-129.526,-360.796,-172.702"></path>
+      <path d="M-197.79,-29.653C-296.684,-44.479,-261.445,-147.127,-348.594,-196.169"></path>
+      <path d="M-95.189,-175.895C-142.784,-263.842,-239.756,-180.324,-319.675,-240.432"></path>
+      <path d="M-95.189,-175.895C-142.784,-263.842,-227.314,-195.776,-303.086,-261.034"></path>
+      <path d="M-95.189,-175.895C-142.784,-263.842,-213.879,-210.371,-285.171,-280.495"></path>
+      <path d="M-95.189,-175.895C-142.784,-263.842,-199.507,-224.046,-266.01,-298.729"></path>
+      <path d="M-95.189,-175.895C-142.784,-263.842,-184.264,-236.742,-245.685,-315.656"></path>
+      <path d="M-95.189,-175.895C-142.784,-263.842,-168.215,-248.403,-224.286,-331.204"></path>
+      <path d="M-95.189,-175.895C-142.784,-263.842,-151.43,-258.977,-201.906,-345.303"></path>
+      <path d="M-95.189,-175.895C-142.784,-263.842,-133.983,-268.419,-178.644,-357.892"></path>
+      <path d="M-95.189,-175.895C-142.784,-263.842,-115.95,-276.687,-154.6,-368.916"></path>
+      <path d="M-95.189,-175.895C-142.784,-263.842,-97.41,-283.745,-129.88,-378.327"></path>
+      <path d="M-95.189,-175.895C-142.784,-263.842,-78.444,-289.563,-104.592,-386.084"></path>
+      <path d="M-95.189,-175.895C-142.784,-263.842,-59.135,-294.114,-78.847,-392.152"></path>
+      <path d="M-95.189,-175.895C-142.784,-263.842,-39.568,-297.379,-52.757,-396.506"></path>
+      <path d="M-95.189,-175.895C-142.784,-263.842,-19.827,-299.344,-26.436,-399.125"></path>
+    </g>
+    <g>
+      <circle transform="rotate(88.73684210526318) translate(0,0)" fill="#555" r="2.5"></circle>
+      <circle transform="rotate(-61.578947368421055) translate(200,0)" fill="#555" r="2.5"></circle>
+      <circle transform="rotate(-18) translate(200,0)" fill="#555" r="2.5"></circle>
+      <circle transform="rotate(23.68421052631578) translate(200,0)" fill="#555" r="2.5"></circle>
+      <circle transform="rotate(61.57894736842104) translate(200,0)" fill="#555" r="2.5"></circle>
+      <circle transform="rotate(88.10526315789474) translate(200,0)" fill="#555" r="2.5"></circle>
+      <circle transform="rotate(122.21052631578945) translate(200,0)" fill="#555" r="2.5"></circle>
+      <circle transform="rotate(152.52631578947364) translate(200,0)" fill="#555" r="2.5"></circle>
+      <circle transform="rotate(188.52631578947364) translate(200,0)" fill="#555" r="2.5"></circle>
+      <circle transform="rotate(241.57894736842104) translate(200,0)" fill="#555" r="2.5"></circle>
+      <circle transform="rotate(-86.21052631578948) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(-82.42105263157895) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(-78.63157894736842) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(-74.84210526315789) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(-71.05263157894737) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(-67.26315789473685) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(-63.473684210526315) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(-59.684210526315795) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(-55.89473684210526) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(-52.10526315789474) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(-48.31578947368421) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(-44.526315789473685) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(-40.73684210526315) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(-36.94736842105264) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(-29.36842105263159) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(-25.57894736842104) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(-21.78947368421052) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(-18) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(-14.21052631578948) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(-10.42105263157896) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(-6.631578947368425) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(0.9473684210526301) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(4.73684210526315) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(8.5263157894737) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(12.31578947368422) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(16.105263157894726) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(19.89473684210526) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(23.68421052631578) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(27.473684210526315) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(31.26315789473682) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(35.05263157894737) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(38.84210526315792) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(42.63157894736841) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(46.42105263157896) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(54) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(57.78947368421052) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(61.57894736842104) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(65.36842105263159) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(69.15789473684208) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(76.73684210526315) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(80.52631578947367) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(84.31578947368422) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(88.10526315789474) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(91.89473684210526) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(95.68421052631581) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(99.4736842105263) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(107.0526315789474) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(110.84210526315786) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(114.63157894736844) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(118.42105263157896) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(122.21052631578945) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(126) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(129.78947368421052) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(133.57894736842107) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(137.36842105263156) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(144.94736842105263) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(148.73684210526312) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(152.52631578947364) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(156.3157894736842) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(160.10526315789474) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(167.68421052631584) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(171.47368421052636) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(175.26315789473682) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(179.0526315789474) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(182.84210526315792) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(186.63157894736838) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(190.42105263157896) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(194.21052631578948) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(198) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(201.78947368421052) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(205.57894736842104) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(209.36842105263162) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(216.9473684210526) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(220.73684210526318) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(224.5263157894737) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(228.31578947368416) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(232.10526315789474) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(235.89473684210526) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(239.68421052631572) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(243.4736842105263) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(247.26315789473682) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(251.05263157894734) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(254.84210526315786) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(258.63157894736844) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(262.42105263157896) translate(400,0)" fill="#999" r="2.5"></circle>
+      <circle transform="rotate(266.2105263157895) translate(400,0)" fill="#999" r="2.5"></circle>
+    </g>
+    <g stroke-linejoin="round" stroke-width="3">
+      <text transform="rotate(88.73684210526318) translate(0,0) rotate(0)" dy="0.31em" x="-6" text-anchor="end" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        <a href="https://ifengwang.github.io/">Stable Diffusion</a>
+      </text>
+      <text transform="rotate(-61.578947368421055) translate(200,0) rotate(0)" dy="0.31em" x="-6" text-anchor="end" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        一致性
+      </text>
+      <text transform="rotate(-18) translate(200,0) rotate(0)" dy="0.31em" x="-6" text-anchor="end" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        加速
+      </text>
+      <text transform="rotate(23.68421052631578) translate(200,0) rotate(0)" dy="0.31em" x="-6" text-anchor="end" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        动画
+      </text>
+      <text transform="rotate(61.57894736842104) translate(200,0) rotate(0)" dy="0.31em" x="-6" text-anchor="end" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        原版
+      </text>
+      <text transform="rotate(88.10526315789474) translate(200,0) rotate(0)" dy="0.31em" x="-6" text-anchor="end" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        图片超分
+      </text>
+      <text transform="rotate(122.21052631578945) translate(200,0) rotate(180)" dy="0.31em" x="6" text-anchor="start" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        增强
+      </text>
+      <text transform="rotate(152.52631578947364) translate(200,0) rotate(180)" dy="0.31em" x="6" text-anchor="start" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        扩展
+      </text>
+      <text transform="rotate(188.52631578947364) translate(200,0) rotate(180)" dy="0.31em" x="6" text-anchor="start" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        控制
+      </text>
+      <text transform="rotate(241.57894736842104) translate(200,0) rotate(180)" dy="0.31em" x="6" text-anchor="start" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        语义增强
+      </text>
+      <text transform="rotate(-86.21052631578948) translate(400,0) rotate(0)" dy="0.31em" x="6" text-anchor="start" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        AnyDoor
+      </text>
+      <text transform="rotate(-82.42105263157895) translate(400,0) rotate(0)" dy="0.31em" x="6" text-anchor="start" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        DreamTuner
+      </text>
+      <text transform="rotate(-78.63157894736842) translate(400,0) rotate(0)" dy="0.31em" x="6" text-anchor="start" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        FlashFace
+      </text>
+      <text transform="rotate(-74.84210526315789) translate(400,0) rotate(0)" dy="0.31em" x="6" text-anchor="start" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        IP Adapter
+      </text>
+      <text transform="rotate(-71.05263157894737) translate(400,0) rotate(0)" dy="0.31em" x="6" text-anchor="start" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        InstantID
+      </text>
+      <text transform="rotate(-67.26315789473685) translate(400,0) rotate(0)" dy="0.31em" x="6" text-anchor="start" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        InstantStyle
+      </text>
+      <text transform="rotate(-63.473684210526315) translate(400,0) rotate(0)" dy="0.31em" x="6" text-anchor="start" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        LoRA
+      </text>
+      <text transform="rotate(-59.684210526315795) translate(400,0) rotate(0)" dy="0.31em" x="6" text-anchor="start" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        LyCORIS
+      </text>
+      <text transform="rotate(-55.89473684210526) translate(400,0) rotate(0)" dy="0.31em" x="6" text-anchor="start" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        Mix-of-Show
+      </text>
+      <text transform="rotate(-52.10526315789474) translate(400,0) rotate(0)" dy="0.31em" x="6" text-anchor="start" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        PIA
+      </text>
+      <text transform="rotate(-48.31578947368421) translate(400,0) rotate(0)" dy="0.31em" x="6" text-anchor="start" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        PhotoMaker
+      </text>
+      <text transform="rotate(-44.526315789473685) translate(400,0) rotate(0)" dy="0.31em" x="6" text-anchor="start" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        Specialist Diffusion
+      </text>
+      <text transform="rotate(-40.73684210526315) translate(400,0) rotate(0)" dy="0.31em" x="6" text-anchor="start" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        Stable-diffusion-reference-only
+      </text>
+      <text transform="rotate(-36.94736842105264) translate(400,0) rotate(0)" dy="0.31em" x="6" text-anchor="start" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        Style Aligned
+      </text>
+      <text transform="rotate(-29.36842105263159) translate(400,0) rotate(0)" dy="0.31em" x="6" text-anchor="start" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        LCM
+      </text>
+      <text transform="rotate(-25.57894736842104) translate(400,0) rotate(0)" dy="0.31em" x="6" text-anchor="start" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        LCM-Lookahead
+      </text>
+      <text transform="rotate(-21.78947368421052) translate(400,0) rotate(0)" dy="0.31em" x="6" text-anchor="start" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        SDXL Lightning
+      </text>
+      <text transform="rotate(-18) translate(400,0) rotate(0)" dy="0.31em" x="6" text-anchor="start" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        SDXS
+      </text>
+      <text transform="rotate(-14.21052631578948) translate(400,0) rotate(0)" dy="0.31em" x="6" text-anchor="start" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        StreamDiffusion
+      </text>
+      <text transform="rotate(-10.42105263157896) translate(400,0) rotate(0)" dy="0.31em" x="6" text-anchor="start" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        T-GATE
+      </text>
+      <text transform="rotate(-6.631578947368425) translate(400,0) rotate(0)" dy="0.31em" x="6" text-anchor="start" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        TCD
+      </text>
+      <text transform="rotate(0.9473684210526301) translate(400,0) rotate(0)" dy="0.31em" x="6" text-anchor="start" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        ASVA
+      </text>
+      <text transform="rotate(4.73684210526315) translate(400,0) rotate(0)" dy="0.31em" x="6" text-anchor="start" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        Animate Anyone
+      </text>
+      <text transform="rotate(8.5263157894737) translate(400,0) rotate(0)" dy="0.31em" x="6" text-anchor="start" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        AnimateDiff
+      </text>
+      <text transform="rotate(12.31578947368422) translate(400,0) rotate(0)" dy="0.31em" x="6" text-anchor="start" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        AnimateZero
+      </text>
+      <text transform="rotate(16.105263157894726) translate(400,0) rotate(0)" dy="0.31em" x="6" text-anchor="start" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        Champ
+      </text>
+      <text transform="rotate(19.89473684210526) translate(400,0) rotate(0)" dy="0.31em" x="6" text-anchor="start" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        DreaMoving
+      </text>
+      <text transform="rotate(23.68421052631578) translate(400,0) rotate(0)" dy="0.31em" x="6" text-anchor="start" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        EMO
+      </text>
+      <text transform="rotate(27.473684210526315) translate(400,0) rotate(0)" dy="0.31em" x="6" text-anchor="start" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        FreeInit
+      </text>
+      <text transform="rotate(31.26315789473682) translate(400,0) rotate(0)" dy="0.31em" x="6" text-anchor="start" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        LongAnimateDiff
+      </text>
+      <text transform="rotate(35.05263157894737) translate(400,0) rotate(0)" dy="0.31em" x="6" text-anchor="start" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        MagicAnimate
+      </text>
+      <text transform="rotate(38.84210526315792) translate(400,0) rotate(0)" dy="0.31em" x="6" text-anchor="start" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        MotionCtrl
+      </text>
+      <text transform="rotate(42.63157894736841) translate(400,0) rotate(0)" dy="0.31em" x="6" text-anchor="start" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        Rerender
+      </text>
+      <text transform="rotate(46.42105263157896) translate(400,0) rotate(0)" dy="0.31em" x="6" text-anchor="start" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        VideoBooth
+      </text>
+      <text transform="rotate(54) translate(400,0) rotate(0)" dy="0.31em" x="6" text-anchor="start" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        SDXL
+      </text>
+      <text transform="rotate(57.78947368421052) translate(400,0) rotate(0)" dy="0.31em" x="6" text-anchor="start" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        SDXL Turbo
+      </text>
+      <text transform="rotate(61.57894736842104) translate(400,0) rotate(0)" dy="0.31em" x="6" text-anchor="start" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        Stable Diffusion
+      </text>
+      <text transform="rotate(65.36842105263159) translate(400,0) rotate(0)" dy="0.31em" x="6" text-anchor="start" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        Stable Diffusion 2
+      </text>
+      <text transform="rotate(69.15789473684208) translate(400,0) rotate(0)" dy="0.31em" x="6" text-anchor="start" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        Stable Diffusion 3
+      </text>
+      <text transform="rotate(76.73684210526315) translate(400,0) rotate(0)" dy="0.31em" x="6" text-anchor="start" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        Coser
+      </text>
+      <text transform="rotate(80.52631578947367) translate(400,0) rotate(0)" dy="0.31em" x="6" text-anchor="start" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        DiffBIR
+      </text>
+      <text transform="rotate(84.31578947368422) translate(400,0) rotate(0)" dy="0.31em" x="6" text-anchor="start" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        PASD
+      </text>
+      <text transform="rotate(88.10526315789474) translate(400,0) rotate(0)" dy="0.31em" x="6" text-anchor="start" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        PromptSR
+      </text>
+      <text transform="rotate(91.89473684210526) translate(400,0) rotate(180)" dy="0.31em" x="-6" text-anchor="end" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        SUPIR
+      </text>
+      <text transform="rotate(95.68421052631581) translate(400,0) rotate(180)" dy="0.31em" x="-6" text-anchor="end" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        SeeSR
+      </text>
+      <text transform="rotate(99.4736842105263) translate(400,0) rotate(180)" dy="0.31em" x="-6" text-anchor="end" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        StableSR
+      </text>
+      <text transform="rotate(107.0526315789474) translate(400,0) rotate(180)" dy="0.31em" x="-6" text-anchor="end" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        DemoFusion
+      </text>
+      <text transform="rotate(110.84210526315786) translate(400,0) rotate(180)" dy="0.31em" x="-6" text-anchor="end" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        Diffusion-DPO
+      </text>
+      <text transform="rotate(114.63157894736844) translate(400,0) rotate(180)" dy="0.31em" x="-6" text-anchor="end" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        Diffusion-KTO
+      </text>
+      <text transform="rotate(118.42105263157896) translate(400,0) rotate(180)" dy="0.31em" x="-6" text-anchor="end" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        FreeU
+      </text>
+      <text transform="rotate(122.21052631578945) translate(400,0) rotate(180)" dy="0.31em" x="-6" text-anchor="end" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        PowerPaint
+      </text>
+      <text transform="rotate(126) translate(400,0) rotate(180)" dy="0.31em" x="-6" text-anchor="end" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        RegionalDiffusion
+      </text>
+      <text transform="rotate(129.78947368421052) translate(400,0) rotate(180)" dy="0.31em" x="-6" text-anchor="end" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        Res-Adapter
+      </text>
+      <text transform="rotate(133.57894736842107) translate(400,0) rotate(180)" dy="0.31em" x="-6" text-anchor="end" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        SPIN-Diffusion
+      </text>
+      <text transform="rotate(137.36842105263156) translate(400,0) rotate(180)" dy="0.31em" x="-6" text-anchor="end" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        X-Adapter
+      </text>
+      <text transform="rotate(144.94736842105263) translate(400,0) rotate(180)" dy="0.31em" x="-6" text-anchor="end" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        LEDITS
+      </text>
+      <text transform="rotate(148.73684210526312) translate(400,0) rotate(180)" dy="0.31em" x="-6" text-anchor="end" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        LayerDiffusion
+      </text>
+      <text transform="rotate(152.52631578947364) translate(400,0) rotate(180)" dy="0.31em" x="-6" text-anchor="end" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        PowerPaint
+      </text>
+      <text transform="rotate(156.3157894736842) translate(400,0) rotate(180)" dy="0.31em" x="-6" text-anchor="end" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        Smooth Diffusion
+      </text>
+      <text transform="rotate(160.10526315789474) translate(400,0) rotate(180)" dy="0.31em" x="-6" text-anchor="end" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        Visual Anagrams
+      </text>
+      <text transform="rotate(167.68421052631584) translate(400,0) rotate(180)" dy="0.31em" x="-6" text-anchor="end" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        Concept Sliders
+      </text>
+      <text transform="rotate(171.47368421052636) translate(400,0) rotate(180)" dy="0.31em" x="-6" text-anchor="end" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        ControlNet
+      </text>
+      <text transform="rotate(175.26315789473682) translate(400,0) rotate(180)" dy="0.31em" x="-6" text-anchor="end" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        ControlNet++
+      </text>
+      <text transform="rotate(179.0526315789474) translate(400,0) rotate(180)" dy="0.31em" x="-6" text-anchor="end" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        Diffuse to Choose
+      </text>
+      <text transform="rotate(182.84210526315792) translate(400,0) rotate(180)" dy="0.31em" x="-6" text-anchor="end" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        FreeControl
+      </text>
+      <text transform="rotate(186.63157894736838) translate(400,0) rotate(180)" dy="0.31em" x="-6" text-anchor="end" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        LooseControl
+      </text>
+      <text transform="rotate(190.42105263157896) translate(400,0) rotate(180)" dy="0.31em" x="-6" text-anchor="end" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        Mudi
+      </text>
+      <text transform="rotate(194.21052631578948) translate(400,0) rotate(180)" dy="0.31em" x="-6" text-anchor="end" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        OMG
+      </text>
+      <text transform="rotate(198) translate(400,0) rotate(180)" dy="0.31em" x="-6" text-anchor="end" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        ReVersion
+      </text>
+      <text transform="rotate(201.78947368421052) translate(400,0) rotate(180)" dy="0.31em" x="-6" text-anchor="end" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        SCEdit
+      </text>
+      <text transform="rotate(205.57894736842104) translate(400,0) rotate(180)" dy="0.31em" x="-6" text-anchor="end" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        TaleCrafter
+      </text>
+      <text transform="rotate(209.36842105263162) translate(400,0) rotate(180)" dy="0.31em" x="-6" text-anchor="end" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        UdiffText
+      </text>
+      <text transform="rotate(216.9473684210526) translate(400,0) rotate(180)" dy="0.31em" x="-6" text-anchor="end" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        CoMat
+      </text>
+      <text transform="rotate(220.73684210526318) translate(400,0) rotate(180)" dy="0.31em" x="-6" text-anchor="end" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        Cross-Image Attention
+      </text>
+      <text transform="rotate(224.5263157894737) translate(400,0) rotate(180)" dy="0.31em" x="-6" text-anchor="end" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        Diffusion-DPO
+      </text>
+      <text transform="rotate(228.31578947368416) translate(400,0) rotate(180)" dy="0.31em" x="-6" text-anchor="end" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        DreamSync
+      </text>
+      <text transform="rotate(232.10526315789474) translate(400,0) rotate(180)" dy="0.31em" x="-6" text-anchor="end" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        ELLA
+      </text>
+      <text transform="rotate(235.89473684210526) translate(400,0) rotate(180)" dy="0.31em" x="-6" text-anchor="end" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        Glyph-ByT5
+      </text>
+      <text transform="rotate(239.68421052631572) translate(400,0) rotate(180)" dy="0.31em" x="-6" text-anchor="end" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        InfEdit
+      </text>
+      <text transform="rotate(243.4736842105263) translate(400,0) rotate(180)" dy="0.31em" x="-6" text-anchor="end" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        Lavi-Bridge
+      </text>
+      <text transform="rotate(247.26315789473682) translate(400,0) rotate(180)" dy="0.31em" x="-6" text-anchor="end" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        MagicScroll
+      </text>
+      <text transform="rotate(251.05263157894734) translate(400,0) rotate(180)" dy="0.31em" x="-6" text-anchor="end" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        Prompt-to-Prompt
+      </text>
+      <text transform="rotate(254.84210526315786) translate(400,0) rotate(180)" dy="0.31em" x="-6" text-anchor="end" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        RPG-Diffusionmaster
+      </text>
+      <text transform="rotate(258.63157894736844) translate(400,0) rotate(180)" dy="0.31em" x="-6" text-anchor="end" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        Ranni
+      </text>
+      <text transform="rotate(262.42105263157896) translate(400,0) rotate(180)" dy="0.31em" x="-6" text-anchor="end" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        SPRIGHT
+      </text>
+      <text transform="rotate(266.2105263157895) translate(400,0) rotate(180)" dy="0.31em" x="-6" text-anchor="end" paint-order="stroke" stroke="hsl(var(--background))" fill="currentColor">
+        VersaT2I
+      </text>
+    </g>
+</svg>

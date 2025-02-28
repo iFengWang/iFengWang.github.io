@@ -157,6 +157,17 @@ $fonturl: '{{ site.baseurl }}/css';
 		grid: ( gutters: 1.5em )
 	));
 
+	.rcodePanel {
+		display: flex; 
+		justify-content: center; 
+		align-items: center;
+		
+		position: absolute;
+    	bottom: 80px;
+    	left: 0;
+    	right: 0;
+	}
+
 /* Basic */
 
 	@-ms-viewport {
@@ -1833,7 +1844,7 @@ $fonturl: '{{ site.baseurl }}/css';
 
 	#main {
 		> header {
-			@include padding(12em, 0);
+			@include padding(4em, 0);
 			@include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))', 'url("#{$imageurl}/config/banner.jpg")'));
 			background-attachment: fixed;
 			background-position: center center;

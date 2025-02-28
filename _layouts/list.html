@@ -4,6 +4,12 @@ layout: default
 
 <article id="main">
   <header>
+    <object
+      data="{{ site.baseurl }}/images/svg/wolf.svg"
+      type="image/svg+xml"
+      style="width: 320px"
+    ></object>
+
     <h2>{{ page.title }}</h2>
     <p>{{ page.description }}</p>
   </header>
@@ -12,3 +18,12 @@ layout: default
     <div class="inner">{{ content }}</div>
   </section>
 </article>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var animateNodes = document.querySelectorAll("animate");
+    animateNodes.forEach(function (node) {
+      node.beginElement();
+    });
+  });
+</script>
