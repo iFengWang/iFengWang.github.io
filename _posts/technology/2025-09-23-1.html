@@ -19,7 +19,7 @@ feature:
 <div class="gallery game-center">
   <div class="game-container">
     <div class="game-area">
-      <canvas id="tetris" width="240" height="600"></canvas>
+      <canvas id="tetris" width="360" height="600"></canvas>
     </div>
     <div class="side-panel">
       <div class="panel-top">
@@ -35,13 +35,25 @@ feature:
       <div class="panel-bottom">
         <div class="controls">
           <h3>操作说明</h3>
-          <ul>
-            <li>← : 左移</li>
-            <li>→ : 右移</li>
-            <li>↓ : 加速下落</li>
-            <li>↑ : 旋转</li>
-            <li>空格 : 暂停/继续</li>
-          </ul>
+          <div class="touch-controls" aria-label="触摸控制区">
+            <button id="btn-up" class="button-key key-up" aria-label="上">
+              ↑
+            </button>
+            <button id="btn-left" class="button-key key-left" aria-label="左">
+              ←
+            </button>
+            <button id="btn-right" class="button-key key-right" aria-label="右">
+              →
+            </button>
+            <button id="btn-down" class="button-key key-down" aria-label="下">
+              ↓
+            </button>
+          </div>
+          <div class="touch-space-wrap">
+            <button id="btn-pause" class="button-space" aria-label="暂停/继续">
+              空格：暂停/继续
+            </button>
+          </div>
         </div>
       </div>
     </div>

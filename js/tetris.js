@@ -7,7 +7,7 @@ const nextContext = nextCanvas.getContext("2d");
 
 // 定义游戏常量
 const BLOCK_SIZE = 20; // 每个方块的大小（像素）
-const BOARD_WIDTH = 12; // 游戏板宽度（方块数）
+const BOARD_WIDTH = 18; // 游戏板宽度（方块数）- 双倍宽度
 const BOARD_HEIGHT = 30; // 游戏板高度（方块数）
 
 // 定义方块颜色数组，null是为了让索引从1开始对应方块类型
@@ -369,6 +369,76 @@ document.addEventListener("keydown", (event) => {
       break;
   }
   draw();
+});
+
+// Touch/mouse buttons -> same actions as keyboard
+function bindButton(id, handler) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.addEventListener("click", (e) => {
+    e.preventDefault();
+    handler();
+    draw();
+  });
+  // support touchstart for faster response on mobile
+  el.addEventListener(
+    "touchstart",
+    (e) => {
+      e.preventDefault();
+      handler();
+      draw();
+    },
+    { passive: false }
+  );
+}
+
+bindButton("btn-left", () => {
+  if (!gameOver && !paused) playerMove(-1);
+});
+bindButton("btn-right", () => {
+  if (!gameOver && !paused) playerMove(1);
+});
+bindButton("btn-down", () => {
+  if (!gameOver && !paused) playerDrop();
+});
+bindButton("btn-up", () => {
+  if (!gameOver && !paused) {
+    const originalMatrix = JSON.parse(JSON.stringify(player.matrix));
+    const rotated = rotate(player.matrix);
+    const originalX = player.pos.x;
+    const originalY = player.pos.y;
+    player.matrix = rotated;
+    let offset = 0;
+    let success = false;
+    for (let i = 0; i < 2; i++) {
+      offset = i * (offset <= 0 ? 1 : -1);
+      player.pos.x += offset;
+      if (!collide()) {
+        success = true;
+        break;
+      }
+      player.pos.x = originalX;
+      player.pos.y--;
+      if (!collide()) {
+        success = true;
+        break;
+      }
+      player.pos.y = originalY;
+    }
+    if (!success) {
+      player.matrix = originalMatrix;
+      player.pos.x = originalX;
+      player.pos.y = originalY;
+    }
+  }
+});
+
+bindButton("btn-pause", () => {
+  paused = !paused;
+  if (!paused) {
+    lastTime = performance.now();
+    update();
+  }
 });
 
 // 开始游戏

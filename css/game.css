@@ -25,7 +25,6 @@
     flex-direction: column;
     width: 200px;
     gap: 20px;
-    height: 640px; /* increase to fit full controls */
     overflow: hidden; /* Keep content inside the side panel box */
 }
 
@@ -54,6 +53,11 @@ canvas {
     background-color: rgba(255, 255, 255, 0.95);
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Use black background for the main game canvas */
+#tetris {
+    background-color: #000;
 }
 
 .game-area {
@@ -93,6 +97,63 @@ canvas {
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     height: 100%;
+}
+
+/* Touch control buttons */
+.touch-controls {
+    display: grid;
+    grid-template-columns: 50px 50px 50px;
+    grid-auto-rows: 50px;
+    justify-content: center;   /* 水平整体居中 */
+    justify-items: center;     /* 单元格内部居中 */
+    align-items: center;
+    gap: 6px;
+    margin: 10px 0 14px 0;
+}
+
+.button-key {
+    width: 46px !important;
+    height: 46px !important;
+    border-radius: 8px;
+    border: 1px solid #d0d0d0;
+    background: #fff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    font-size: 22px;
+    box-sizing: border-box;
+    cursor: pointer;
+    padding: 0 !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-appearance: none;
+    appearance: none;
+}
+.button-key:active {
+    transform: translateY(1px);
+}
+.key-up { grid-column: 2; grid-row: 1; }
+.key-left { grid-column: 1; grid-row: 2; }
+.key-down { grid-column: 2; grid-row: 2; }
+.key-right { grid-column: 3; grid-row: 2; }
+
+.touch-space-wrap {
+    display: flex;
+    justify-content: center;
+}
+.button-space {
+    width: 100%;
+    max-width: 220px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #d0d0d0;
+    background: #fff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    cursor: pointer;
 }
 
 .controls h3 {
@@ -140,4 +201,42 @@ canvas {
 #nextPiece {
     background-color: #000;
     margin-top: 5px;
+}
+
+/* ---------- Responsive layout ---------- */
+/* Desktop: enlarge game canvas to 2x to widen left area */
+@media (min-width: 1200px) {
+    .game-container {
+        align-items: flex-start;
+    }
+    /* Keep wrapper clean; canvas itself carries visual styles */
+    .game-area {
+        position: relative;
+        width: auto;            /* let canvas define width (480px) */
+        height: auto;           /* let canvas define height (600px) */
+        background: transparent;
+        border: 0;
+        box-shadow: none;
+    }
+}
+
+/* Mobile: stack side panel above the game area */
+@media (max-width: 768px) {
+    .game-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .side-panel {
+        order: -1;
+        width: 100%;
+        max-width: 360px;
+        height: auto;
+    }
+    .panel-bottom {
+        overflow: visible;
+    }
+    .game-area {
+        margin-right: 0;
+        height: auto;
+    }
 }
