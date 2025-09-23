@@ -1,0 +1,143 @@
+.game-container {
+    display: flex;
+    gap: 20px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    align-items: stretch;
+    /* min-height: 580px; */
+}
+
+/* Center the whole block horizontally within the post */
+.game-center {
+    display: flex;
+    justify-content: center;
+}
+
+/* Ensure the container width is intrinsic and can be centered */
+.game-center .game-container {
+    margin: 0 auto;
+}
+
+.side-panel {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    gap: 20px;
+    height: 640px; /* increase to fit full controls */
+    overflow: hidden; /* Keep content inside the side panel box */
+}
+
+.panel-top {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    /* Let content define height to avoid overflow of score/level */
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.panel-bottom {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: auto; /* Scroll if content exceeds available height */
+}
+
+canvas {
+    border: 2px solid #333;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.game-area {
+    margin-right: 20px;
+    height: 640px; /* match side panel height */
+    display: flex;
+    /* align-items: center; */
+}
+
+.next-piece {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.next-piece p {
+    margin: 0 0 5px 0;
+}
+
+.game-info {
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    text-align: center;
+    padding-bottom: 5px;
+}
+
+.score, .level {
+    margin: 3px 0;
+    color: #333;
+    font-weight: bold;
+}
+
+.controls {
+    padding: 5px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    height: 100%;
+}
+
+.controls h3 {
+    margin: 0 0 10px 0;
+    color: #333;
+    font-size: 18px;
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #eee;
+}
+
+.controls ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.controls li {
+    margin: 8px 0;
+    font-size: 16px;
+    color: #444;
+    padding: 6px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.controls li:hover {
+    background-color: #f0f0f0;
+}
+
+.game-over {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 30px 40px;
+    text-align: center;
+    display: none;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+} 
+
+#nextPiece {
+    background-color: #000;
+    margin-top: 5px;
+}
