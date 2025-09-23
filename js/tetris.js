@@ -76,6 +76,31 @@ let dropInterval = 1000; // 下落间隔（毫秒）
 let lastTime = 0; // 上次更新时间
 let paused = false; // 暂停状态
 let gameOver = false; // 游戏结束状态
+let lightPhase = 0; // 边缘光动画相位
+let trails = []; // 方块尾迹粒子
+let likes = []; // 点赞动画数组
+let soundEnabled = true; // 音效开关状态
+
+// 音效系统
+const sounds = {
+  rotate: new Audio("/images/posts/technology/fangkuai/change.mp3"),
+  move: new Audio("/images/posts/technology/fangkuai/move.mp3"),
+  clear: new Audio("/images/posts/technology/fangkuai/duang.mp3"),
+};
+
+// 播放音效函数
+function playSound(soundName) {
+  if (!soundEnabled) return; // 如果音效关闭，直接返回
+
+  const sound = sounds[soundName];
+  if (sound) {
+    sound.currentTime = 0; // 重置播放位置
+    sound.play().catch((e) => {
+      // 忽略播放错误（用户可能没有交互过页面）
+      console.log("音效播放失败:", e);
+    });
+  }
+}
 
 // 绘制单个方块的函数
 function drawBlock(x, y, color, ctx = context, borderWidth = 1) {
@@ -86,11 +111,109 @@ function drawBlock(x, y, color, ctx = context, borderWidth = 1) {
   ctx.strokeRect(x * BLOCK_SIZE, y * BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE); // 绘制边框
 }
 
+// 创建点赞动画
+function createLike() {
+  const like = {
+    x: canvas.width / 2, // 游戏区中央
+    y: canvas.height / 2,
+    scale: 0,
+    alpha: 1,
+    rotation: 0,
+    life: 0,
+    maxLife: 2000, // 2秒
+    image: new Image(),
+  };
+
+  like.image.src = "/images/posts/technology/fangkuai/zhan.png";
+  likes.push(like);
+}
+
+// 更新点赞动画
+function updateLikes(deltaTime) {
+  for (let i = likes.length - 1; i >= 0; i--) {
+    const like = likes[i];
+    like.life += deltaTime;
+
+    // 气泡Q弹效果：使用弹性函数
+    const progress = like.life / like.maxLife;
+
+    // 气泡弹出效果：先快速放大，然后弹性回弹（更明显的效果）
+    if (progress < 0.25) {
+      // 前25%时间：快速放大到2.5倍（更明显）
+      like.scale = (progress / 0.25) * 2.5;
+    } else if (progress < 0.5) {
+      // 25%-50%时间：弹性回弹到1.3倍
+      const bounceProgress = (progress - 0.25) / 0.25;
+      like.scale = 2.5 - bounceProgress * bounceProgress * 1.2; // 更大的回弹幅度
+    } else if (progress < 0.75) {
+      // 50%-75%时间：再次小幅度弹跳
+      const bounceProgress = (progress - 0.5) / 0.25;
+      like.scale = 1.3 + Math.sin(bounceProgress * Math.PI * 3) * 0.15; // 更明显的弹跳
+    } else {
+      // 75%-100%时间：逐渐缩小并淡出
+      const shrinkProgress = (progress - 0.75) / 0.25;
+      like.scale = 1.3 * (1 - shrinkProgress);
+    }
+
+    // 去掉旋转效果
+    like.rotation = 0;
+
+    // 淡出效果：最后25%时间开始淡出
+    if (progress < 0.75) {
+      like.alpha = 1;
+    } else {
+      like.alpha = 1 - (progress - 0.75) / 0.25;
+    }
+
+    // 轻微上移：气泡向上飘
+    like.y -= deltaTime * 0.05;
+
+    // 移除过期的动画
+    if (like.life >= like.maxLife) {
+      likes.splice(i, 1);
+    }
+  }
+}
+
+// 绘制点赞动画
+function drawLikes() {
+  likes.forEach((like) => {
+    if (!like.image.complete) return; // 图片未加载完成则跳过
+
+    context.save();
+    context.globalAlpha = like.alpha;
+    context.translate(like.x, like.y);
+    context.rotate(like.rotation);
+    context.scale(like.scale, like.scale);
+
+    // 绘制点赞图片
+    const imgWidth = 60;
+    const imgHeight = 60;
+    context.drawImage(
+      like.image,
+      -imgWidth / 2,
+      -imgHeight / 2,
+      imgWidth,
+      imgHeight
+    );
+
+    context.restore();
+  });
+}
+
 // 绘制整个游戏画面
 function draw() {
   // 清除画布，填充黑色背景
   context.fillStyle = "#000";
   context.fillRect(0, 0, canvas.width, canvas.height);
+
+  // 绘制尾迹粒子（在方块之下）
+  drawTrails();
+
+  // 绘制点赞动画
+  drawLikes();
+
+  // 去除两侧闪烁光效，仅保留上方尾迹
 
   // 绘制已固定的方块
   board.forEach((row, y) => {
@@ -110,6 +233,8 @@ function draw() {
         }
       });
     });
+
+    // 移除方块两侧的线性渐变闪烁效果，仅保留上方尾迹
   }
 }
 
@@ -222,23 +347,9 @@ function playerDrop() {
   if (collide()) {
     player.pos.y--; // 如果发生碰撞，退回上一格
     merge(); // 将方块固定到游戏板上
-
-    // 立即检查消行
-    let sweepComplete = false;
-    const checkSweep = () => {
-      if (!sweepComplete) {
-        arenaSweep();
-        sweepComplete = true;
-        playerReset();
-      }
-    };
-
-    // 检查是否需要消行
-    if (!board.some((row) => row.every((value) => value !== 0))) {
-      playerReset(); // 如果不需要消行，直接生成新方块
-    } else {
-      setTimeout(checkSweep, 0); // 需要消行时，等待动画完成
-    }
+    // 消行并立即生成新方块
+    arenaSweep();
+    playerReset();
     return true;
   }
   return false;
@@ -283,6 +394,10 @@ function update(time = 0) {
   const deltaTime = time - lastTime;
   lastTime = time;
   dropCounter += deltaTime;
+  lightPhase += deltaTime * 0.004; // 控制光效速度
+  emitTrailParticles(deltaTime);
+  updateTrails(deltaTime);
+  updateLikes(deltaTime); // 更新点赞动画
 
   if (dropCounter > dropInterval) {
     playerDrop();
@@ -291,6 +406,99 @@ function update(time = 0) {
 
   draw();
   requestAnimationFrame(update);
+}
+
+// drawPieceGlow 已删除（去掉方块两侧闪烁的线性渐变效果）
+
+// 生成尾迹粒子
+function emitTrailParticles(deltaTime) {
+  if (!player.matrix) return;
+  // 根据时间发射，保证不同帧率下效果一致
+  const particlesPerMs = 0.12; // 每毫秒发射率（提升至原来的2倍）
+  const count = Math.max(1, Math.floor(deltaTime * particlesPerMs));
+
+  const rows = player.matrix.length;
+  const cols = player.matrix[0].length;
+  const px = player.pos.x * BLOCK_SIZE;
+  const py = player.pos.y * BLOCK_SIZE;
+  const pw = cols * BLOCK_SIZE;
+
+  const color = getCurrentPieceColor();
+
+  for (let i = 0; i < count; i++) {
+    const x = px + Math.random() * pw; // 顶边任意位置
+    const y = py - 2 - Math.random() * 8; // 顶边上方少许像素
+    const vx = (Math.random() - 0.5) * 0.9; // 稍加强左右漂移
+    const vy = -0.6 - Math.random() * 0.8; // 向上更快（尾迹更明显）
+    trails.push(createParticle(x, y, vx, vy, color));
+  }
+}
+
+function createParticle(x, y, vx, vy, color) {
+  return {
+    x,
+    y,
+    vx,
+    vy,
+    color: color || "#ffffff",
+    life: 0,
+    maxLife: 800 + Math.random() * 400, // 更持久
+    alpha: 0.5, // 更亮
+    size: 0.75 + Math.random() * 1.0, // 尺寸缩小至原来的约1/4
+  };
+}
+
+// 更新并绘制尾迹粒子（在背景与方块之间绘制）
+function drawTrails() {
+  context.save();
+  context.globalCompositeOperation = "lighter";
+  for (let i = 0; i < trails.length; i++) {
+    const p = trails[i];
+    const a = Math.max(0, p.alpha * (1 - p.life / p.maxLife));
+    if (a <= 0) continue;
+    // 使用粒子颜色的淡色雾感
+    context.fillStyle = applyAlphaToHex(p.color, a);
+    // 纵向拉伸形成尾线感，并添加轻微模糊光晕
+    context.shadowColor = applyAlphaToHex(p.color, a * 0.8);
+    context.shadowBlur = 3;
+    const h = p.size * 3.5; // 随尺寸同比缩小
+    context.fillRect(p.x, p.y - h, p.size, h);
+  }
+  context.restore();
+}
+
+function updateTrails(deltaTime) {
+  for (let i = trails.length - 1; i >= 0; i--) {
+    const p = trails[i];
+    const k = deltaTime / 16.7;
+    p.x += p.vx * k;
+    p.y += p.vy * k;
+    p.life += deltaTime;
+    if (p.life >= p.maxLife) trails.splice(i, 1);
+  }
+}
+
+// 获取当前方块的主颜色
+function getCurrentPieceColor() {
+  if (!player.matrix) return "#ffffff";
+  for (let y = 0; y < player.matrix.length; y++) {
+    for (let x = 0; x < player.matrix[y].length; x++) {
+      const v = player.matrix[y][x];
+      if (v) return COLORS[v] || "#ffffff";
+    }
+  }
+  return "#ffffff";
+}
+
+// 将十六进制颜色与透明度合成 rgba 字符串
+function applyAlphaToHex(hex, a) {
+  // 期望 hex 如 #RRGGBB
+  const m = /^#?([\da-f]{2})([\da-f]{2})([\da-f]{2})$/i.exec(hex);
+  if (!m) return `rgba(255,255,255,${a})`;
+  const r = parseInt(m[1], 16);
+  const g = parseInt(m[2], 16);
+  const b = parseInt(m[3], 16);
+  return `rgba(${r},${g},${b},${a})`;
 }
 
 // 键盘控制
@@ -307,16 +515,19 @@ document.addEventListener("keydown", (event) => {
     case 37: // 左箭头
       if (!gameOver && !paused) {
         playerMove(-1);
+        playSound("move");
       }
       break;
     case 39: // 右箭头
       if (!gameOver && !paused) {
         playerMove(1);
+        playSound("move");
       }
       break;
     case 40: // 下箭头
       if (!gameOver && !paused) {
         playerDrop();
+        playSound("move");
       }
       break;
     case 38: // 上箭头
@@ -357,6 +568,9 @@ document.addEventListener("keydown", (event) => {
           player.matrix = originalMatrix;
           player.pos.x = originalX;
           player.pos.y = originalY;
+        } else {
+          // 旋转成功时播放音效
+          playSound("rotate");
         }
       }
       break;
@@ -392,15 +606,68 @@ function bindButton(id, handler) {
   );
 }
 
-bindButton("btn-left", () => {
-  if (!gameOver && !paused) playerMove(-1);
-});
-bindButton("btn-right", () => {
-  if (!gameOver && !paused) playerMove(1);
-});
-bindButton("btn-down", () => {
-  if (!gameOver && !paused) playerDrop();
-});
+// 长按辅助：在按住按钮时持续触发 handler
+function bindHold(id, handler, interval = 120) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  let timer = null;
+  let startTimer = null;
+  const start = (e) => {
+    e.preventDefault();
+    if (timer) return;
+    // 延迟一小段时间再开始长按，避免与单次点击冲突
+    startTimer = setTimeout(() => {
+      timer = setInterval(() => {
+        handler();
+        draw();
+      }, interval);
+    }, 200); // 200ms 后开始长按
+  };
+  const stop = (e) => {
+    if (startTimer) {
+      clearTimeout(startTimer);
+      startTimer = null;
+    }
+    if (timer) {
+      clearInterval(timer);
+      timer = null;
+    }
+  };
+  el.addEventListener("mousedown", start);
+  el.addEventListener("touchstart", start, { passive: false });
+  window.addEventListener("mouseup", stop);
+  window.addEventListener("mouseleave", stop);
+  window.addEventListener("touchend", stop);
+  window.addEventListener("touchcancel", stop);
+}
+
+const safeLeft = () => {
+  if (!gameOver && !paused) {
+    playerMove(-1);
+    playSound("move");
+  }
+};
+const safeRight = () => {
+  if (!gameOver && !paused) {
+    playerMove(1);
+    playSound("move");
+  }
+};
+const safeDown = () => {
+  if (!gameOver && !paused) {
+    playerDrop();
+    playSound("move");
+  }
+};
+
+bindButton("btn-left", safeLeft);
+bindButton("btn-right", safeRight);
+bindButton("btn-down", safeDown);
+
+// 启用长按：左右移动与下落连续触发
+bindHold("btn-left", safeLeft, 90);
+bindHold("btn-right", safeRight, 90);
+bindHold("btn-down", safeDown, 70);
 bindButton("btn-up", () => {
   if (!gameOver && !paused) {
     const originalMatrix = JSON.parse(JSON.stringify(player.matrix));
@@ -429,6 +696,9 @@ bindButton("btn-up", () => {
       player.matrix = originalMatrix;
       player.pos.x = originalX;
       player.pos.y = originalY;
+    } else {
+      // 旋转成功时播放音效
+      playSound("rotate");
     }
   }
 });
@@ -441,79 +711,49 @@ bindButton("btn-pause", () => {
   }
 });
 
+// 音效开关按钮
+bindButton("btn-sound", () => {
+  soundEnabled = !soundEnabled;
+  const btn = document.getElementById("btn-sound");
+  if (btn) {
+    btn.textContent = soundEnabled ? "音效开关" : "音效关闭";
+  }
+});
+
 // 开始游戏
 playerReset();
 update();
 
 // 添加消行检测和处理函数
 function arenaSweep() {
+  // 立即、稳定地清除满行（无动画），避免索引位移导致漏删
   let linesCleared = 0;
-  let linesToClear = [];
-
-  // 检查需要消除的行
   for (let y = board.length - 1; y >= 0; y--) {
-    if (board[y].every((value) => value !== 0)) {
-      linesToClear.push(y);
+    if (board[y].every((v) => v !== 0)) {
+      board.splice(y, 1); // 删除该行
+      board.unshift(Array(BOARD_WIDTH).fill(0)); // 顶部补一空行
+      linesCleared++;
+      y++; // 由于上移，保持 y 指向当前新下移的一行，继续检测
     }
   }
 
-  if (linesToClear.length > 0) {
-    // 逐行处理消除动画
-    const processLine = (lineIndex) => {
-      const y = linesToClear[lineIndex];
+  if (linesCleared > 0) {
+    const scores = [0, 100, 300, 500, 800];
+    player.score += scores[linesCleared] * player.level;
+    const newLevel = Math.floor(player.score / 1000) + 1;
+    if (newLevel !== player.level) {
+      player.level = newLevel;
+      dropInterval = Math.max(1000 - (player.level - 1) * 50, 100);
+    }
+    const scoreEl = document.getElementById("score");
+    const levelEl = document.getElementById("level");
+    if (scoreEl) scoreEl.textContent = player.score;
+    if (levelEl) levelEl.textContent = player.level;
 
-      // 单行闪烁动画
-      let flashCount = 0;
-      const flash = setInterval(() => {
-        const row = board[y];
-        for (let x = 0; x < row.length; x++) {
-          if (row[x] !== 0) {
-            context.fillStyle = flashCount % 2 === 0 ? "#FFF" : "#FF0";
-            context.fillRect(
-              x * BLOCK_SIZE,
-              y * BLOCK_SIZE,
-              BLOCK_SIZE,
-              BLOCK_SIZE
-            );
-          }
-        }
-        draw();
+    // 触发点赞动画
+    createLike();
 
-        flashCount++;
-        if (flashCount >= 4) {
-          clearInterval(flash);
-
-          // 除当前行
-          const row = board.splice(y, 1)[0];
-          board.unshift(row.fill(0));
-          linesCleared++;
-
-          // 处理下一行
-          if (lineIndex + 1 < linesToClear.length) {
-            setTimeout(() => {
-              processLine(lineIndex + 1);
-            }, 200);
-          } else {
-            // 所有行处理完毕，更新分数
-            const scores = [0, 100, 300, 500, 800];
-            player.score += scores[linesCleared] * player.level;
-
-            // 更新等级
-            const newLevel = Math.floor(player.score / 1000) + 1;
-            if (newLevel !== player.level) {
-              player.level = newLevel;
-              dropInterval = Math.max(1000 - (player.level - 1) * 50, 100);
-            }
-
-            // 更新显示
-            document.getElementById("score").textContent = player.score;
-            document.getElementById("level").textContent = player.level;
-          }
-        }
-      }, 150);
-    };
-
-    // 开始处理第一行
-    processLine(0);
+    // 播放消行音效
+    playSound("clear");
   }
 }

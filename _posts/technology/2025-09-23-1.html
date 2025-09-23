@@ -1,6 +1,6 @@
 ---
 layout: page
-title: 10分钟开发出俄罗斯方块游戏
+title: 60分钟开发出俄罗斯方块游戏
 modified:
 categories: [technology]
 excerpt:
@@ -11,10 +11,12 @@ feature:
 ---
 
 <p>
-  10分钟开发出俄罗斯方块游戏，你信吗？周末闲来无事，和儿子一起用AI开发了一款俄罗斯方块游戏，下面是效果图。
+  60分钟开发出俄罗斯方块小游戏，周末闲来无事，和儿子一起用AI开发了一款俄罗斯方块小游戏，虽实现了基本功能还有待优化，但通过动手实践，让孩子对AI有了全新的认识。
 </p>
 <!--more-->
-<p>代码已经上传到github，感兴趣的可以看看。</p>
+<p>
+  使用JavaScript脚本实现，基于Web页面的俄罗斯方块小游戏。全程几乎没有手写代码，绝大部分由AI生成。但在各别地方，还是需要手动调整代码，确保游戏正常运行。
+</p>
 
 <div class="gallery game-center">
   <div class="game-container">
@@ -54,9 +56,35 @@ feature:
               空格：暂停/继续
             </button>
           </div>
+          <div class="touch-space-wrap">
+            <button id="btn-sound" class="button-space" aria-label="音效开关">
+              音效开关
+            </button>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+<br />
+<p>
+  AI时代已经来临，各种大模型层出不穷。从AIAgent到DeekSearch，AI的渗透已经无处不在。作为开发者，我们应该如何应对？豪无疑问，只有拥抱AI，才能在未来的竞争中立于不败之地。很多Developer恐慌AI的出现，会让自己丢了饭碗，
+  但我却觉得AI的出现，会让自己有更多的机会，去实现自己的梦想。AI可以辅助我们完成很多重复性、机械性的工作，让我们有更多的时间去思考、去创新。
+  AI的出现，只会加大专业人员和非专业人员的差距，让专业的人更专业，且被赋予更大的POWER。
+</p>
+
+<div class="gallery game-center">
+  <div class="gallery-item">
+    <img
+      src="{{ site.baseurl }}/images/posts/technology/fangkuai/f1.jpg"
+      alt="loading..."
+    />
+    <span>专注的设计中...</span>
+  </div>
+</div>
+
+<p>
+  AI的自我更新进化的速度，可能超出绝大部分普通人的认知。奇点是否临近？让我们拭目以待！
+</p>
+
 <script src="{{ site.baseurl }}/js/tetris.js"></script>

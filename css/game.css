@@ -30,9 +30,10 @@
 
 .panel-top {
     background: rgba(255, 255, 255, 0.95);
-    padding: 15px;
+    padding: 10px;                 /* 与边框保持 10px 间距 */
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border: 1px dotted #d0d0d0;    /* 点线边框 */
+    box-shadow: none;              /* 取消阴影 */
     /* Let content define height to avoid overflow of score/level */
     height: auto;
     display: flex;
@@ -92,10 +93,11 @@ canvas {
 }
 
 .controls {
-    padding: 5px;
+    padding: 10px;                 /* 与边框保持 10px 间距 */
     background: rgba(255, 255, 255, 0.95);
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border: 1px dotted #d0d0d0;    /* 点线边框 */
+    box-shadow: none;              /* 取消阴影 */
     height: 100%;
 }
 
@@ -139,6 +141,11 @@ canvas {
 .touch-space-wrap {
     display: flex;
     justify-content: center;
+    margin-bottom: 10px;
+}
+
+.touch-space-wrap:last-child {
+    margin-bottom: 0;
 }
 .button-space {
     width: 100%;
@@ -225,18 +232,95 @@ canvas {
     .game-container {
         flex-direction: column;
         align-items: center;
+        width: 100vw;               /* 与屏宽一致 */
+        padding: 20px;              /* 加宽外层留白20px，增大与画布的边距 */
+        gap: 0;                     /* 移除画布与按钮之间的纵向间隙 */
+        box-sizing: border-box;
     }
-    .side-panel {
-        order: -1;
+    /* 在手机端把 side-panel“打散”为两个独立区域：
+       让 .panel-top 显示在游戏区上方，.panel-bottom 显示在下方 */
+    .side-panel { display: contents; }
+    .panel-top {
+        display: grid;          /* 使用网格，确保同排 */
+        grid-template-columns: max-content 1fr;  /* 左侧自适应，右侧占满 */
+        column-gap: 8px;        /* 更紧凑的间距 */
+        order: 0;
         width: 100%;
-        max-width: 360px;
-        height: auto;
+        margin: 0 0 8px 0;
+        align-items: center;    /* 垂直居中两块 */
+        justify-items: start;   /* 左对齐 */
+    }
+    /* 移除“下一个”标题栏以压缩区域 */
+    .panel-top .next-piece p { display: none; }
+    /* 让预览和分数块同排自适应且总宽不超过容器 */
+    .panel-top .next-piece { margin: 0; }
+    .panel-top .game-info {
+        margin: 0;
+        width: 100%;
+        align-self: center;
+        justify-self: start;
+        text-align: left;          /* 文本左对齐 */
+        padding-left: 0;           /* 去除左内边距 */
+    }
+    .panel-top .game-info .score,
+    .panel-top .game-info .level {
+        text-align: left;
+        margin-left: 0;
+    }
+    .panel-top .game-info { text-align: center; }
+    /* 缩小预览画布，适配窄屏 */
+    .panel-top #nextPiece { width: 96px; height: 76px; }
+    .game-area { order: 1; }
+    .panel-bottom {
+        order: 2;               /* 控制按钮在画布下方 */
+        overflow: visible;
+        width: 100%;
     }
     .panel-bottom {
         overflow: visible;
+        width: 100%;
     }
     .game-area {
         margin-right: 0;
         height: auto;
+        width: 100%;
+        display: flex;
+        justify-content: center;      /* 使画布水平居中 */
+        margin-bottom: 0;             /* 去掉画布与下方空白 */
+    }
+    /* 让游戏画布与操作区等宽，并降低高度以便同屏展示 */
+    .game-area canvas {
+        width: 100%;               /* 相对父容器缩放，避免被裁切 */
+        max-width: 100%;
+        height: auto;              /* 按比例缩放高度 */
+        display: block;
+    }
+    .controls {                   /* 操作说明外框与游戏区对齐 */
+        width: 100%;
+        margin: 0 auto 0;         /* 去掉与画布之间的空白，让按钮紧贴 */
+        padding-left: 0;          /* 减少左右内边距，避免按钮被截断 */
+        padding-right: 0;
+        box-sizing: border-box;
+    }
+    .touch-controls {           /* 让按钮区域占满宽度，视觉对齐 */
+        width: 100%;
+        max-width: none;
+        justify-content: center;
+        grid-template-columns: repeat(3, 1fr); /* 三键一行占满宽度 */
+        grid-auto-rows: 56px;
+    }
+    .button-space {               /* 空格按钮占满宽度且不被裁切 */
+        max-width: none;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    /* 三键填满容器宽度，和“空格”按钮同宽 */
+    .button-key {
+        width: 100% !important;
+        height: 56px !important;
+    }
+    /* 隐藏“操作说明”标题文字，节省竖向空间 */
+    .controls h3 {
+        display: none;
     }
 }
