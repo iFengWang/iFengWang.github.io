@@ -131,13 +131,60 @@ $fonturl: '{{ site.baseurl }}/css';
 	.mylogo-small {
 		width: 30px;
 		height: 30px;
-		margin: 10px;
+		margin: 0 10px; // Only left and right margin, no top/bottom margin for vertical centering
+		vertical-align: middle; // Ensure logo is vertically centered with text
 	}
 
 	.title-layout {
 		display: flex;
 		align-items: center;
 		text-align: center;
+		gap: 5px; // 5px spacing between logo and title
+		height: 3em; // Match header height for proper vertical centering
+		line-height: 3em; // Match header line-height for proper vertical centering
+		
+		a {
+			text-decoration: none !important; // Remove link underline
+			border: none !important; // Remove link borders
+			border-bottom: none !important; // Specifically remove bottom border
+			outline: none !important; // Remove outline
+			display: flex; // Make link a flex container
+			align-items: center; // Center align logo within link
+		}
+		
+		h1 {
+			position: static !important; // Override absolute positioning
+			left: auto !important; // Reset left positioning
+			top: auto !important; // Reset top positioning
+			height: auto !important; // Reset height
+			line-height: normal !important; // Reset line-height
+			margin: 0; // Remove default margin
+			text-decoration: none !important; // Remove any text decoration
+			border: none !important; // Remove any borders
+			border-bottom: none !important; // Specifically remove bottom border
+			outline: none !important; // Remove outline
+		}
+	}
+	
+	// Additional high-priority overrides for header h1
+	#header .title-layout h1 {
+		position: static !important; // Override absolute positioning
+		left: auto !important; // Reset left positioning
+		top: auto !important; // Reset top positioning
+		height: auto !important; // Reset height
+		line-height: normal !important; // Reset line-height
+		margin: 0 !important; // Remove default margin
+		text-decoration: none !important; // Remove any text decoration
+		border: none !important; // Remove any borders
+		border-bottom: none !important; // Specifically remove bottom border
+		outline: none !important; // Remove outline
+	}
+	
+	#header .title-layout a {
+		text-decoration: none !important; // Remove link underline
+		border: none !important; // Remove link borders
+		border-bottom: none !important; // Specifically remove bottom border
+		outline: none !important; // Remove outline
 	}
 
 	.no-wrap {
@@ -2064,5 +2111,145 @@ $fonturl: '{{ site.baseurl }}/css';
 			}
 		}
 	}
+
+// Language Switcher Styles
+    .language-switcher {
+        position: fixed;
+        top: 0;
+        right: calc(6em + 20px); // Adjusted for 20px spacing from menu
+        z-index: _misc(z-index-base) + 10;
+        height: 3em; // Match header height
+        display: flex;
+        align-items: center; // Center align like menu button text
+        width: 100px; // Match button width
+    
+    .language-dropdown {
+        position: relative;
+        display: inline-block;
+    }
+    
+    .language-toggle {
+        @include vendor('appearance', 'none');
+        @include vendor('transition', 'all #{_duration(transitions)} ease');
+        background: transparent !important; // No background
+        border: 2px solid white !important; // Match SVG stroke-width
+        outline: none !important; // No outline on focus
+        box-shadow: none !important; // No box shadow
+        border-radius: 4px !important; // Rounded corners
+        color: white !important; // Always white text
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center; // Center content horizontally
+        font-size: 0.7em; // Smaller font to match icon size
+        font-weight: _font(weight-bold);
+        letter-spacing: _size(letter-spacing-alt);
+        padding: 0 0.8em; // Reduced padding for smaller button
+        text-transform: uppercase;
+        height: 2em; // Smaller height to match icon visual weight
+        line-height: 2em; // Match height
+        width: 100px; // Fixed width
+        min-width: 100px; // Ensure minimum width
+        max-width: 100px; // Ensure maximum width
+        
+        &:hover {
+            color: white !important; // Keep white on hover
+            border-color: rgba(255, 255, 255, 0.8); // Slightly transparent on hover
+        }
+        
+        &.active {
+            color: white !important; // Keep white when active/dropdown open
+        }
+        
+        .current-lang {
+            margin-right: 0.5em; // Adjusted spacing
+        }
+        
+        .fa-chevron-down {
+            font-size: 0.7em; // Adjusted font size
+            @include vendor('transition', 'transform #{_duration(transitions)} ease');
+        }
+        
+        &.active .fa-chevron-down {
+            @include vendor('transform', 'rotate(180deg)');
+        }
+    }
+    
+    .language-menu {
+        @include vendor('transition', 'all #{_duration(transitions)} ease');
+        background: rgba(0, 0, 0, 0.9);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 8px;
+        backdrop-filter: blur(10px);
+        display: none;
+        width: 100%; // Match button width exactly
+        position: absolute;
+        right: 0; // Align with button right edge
+        top: 100%;
+        margin-top: 0.3em; // Adjusted margin-top
+        overflow: hidden;
+        
+        &.show {
+            display: block;
+            @include vendor('animation', 'fadeInDown 0.3s ease');
+        }
+        
+        .language-option {
+            @include vendor('transition', 'background-color #{_duration(transitions)} ease');
+            color: white;
+            display: block;
+            font-size: 0.6em; // Adjusted font size
+            font-weight: _font(weight);
+            letter-spacing: _size(letter-spacing-alt);
+            padding: 0.5em 0.7em; // Adjusted padding
+            text-decoration: none;
+            text-transform: uppercase;
+            
+            &:hover {
+                background: rgba(255, 255, 255, 0.1);
+            }
+            
+            &.active {
+                background: rgba(255, 255, 255, 0.2);
+            }
+        }
+    }
+    
+    @include breakpoint(small) {
+        top: 0; // Adjusted for vertical centering
+        right: calc(3em + 20px); // Adjusted for mobile menu button (icon only) + 20px spacing
+        height: 3em; // Match header height
+        
+        .language-toggle {
+            font-size: 0.7em; // Increased font size for better visibility
+            padding: 0 0.6em; // Reduced padding for mobile
+            height: 2em; // Smaller height to match icon visual weight
+            line-height: 2em; // Match height
+            width: 100px; // Fixed width on mobile too
+            min-width: 100px; // Ensure minimum width
+            max-width: 100px; // Ensure maximum width
+        }
+        
+        .language-menu {
+            width: 100%; // Match button width exactly
+            
+            .language-option {
+                font-size: 0.6em; // Increased font size for better visibility
+                padding: 0.4em 0.5em; // Adjusted padding
+            }
+        }
+    }
+}
+
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        @include vendor('transform', 'translateY(-10px)');
+    }
+    100% {
+        opacity: 1;
+        @include vendor('transform', 'translateY(0)');
+    }
+}
 
 	

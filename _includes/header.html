@@ -1,12 +1,12 @@
 <!-- Header -->
 <header id="header"{% if page.layout == 'landing' %} class="alt"{% endif %}>
   
-  <a href="{{ site.baseurl }}/index.html">
-    <div class="title-layout">
+  <div class="title-layout">
+    <a href="{{ site.baseurl }}/index.html">
       <img src="{{ site.baseurl }}/images/config/logo.png" class="mylogo-small" />
-      <h1>{{ site.title }}</h1>
-    </div>
-  </a>
+    </a>
+    <h1>{{ site.title }}</h1>
+  </div>
   <nav id="nav">
     <ul>
       <li class="special">
@@ -26,3 +26,6 @@
     </ul>
   </nav>
 </header>
+
+<!-- Language Switcher -->
+{% include language-switcher.html %}
