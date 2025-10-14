@@ -239,7 +239,7 @@ $fonturl: '{{ site.baseurl }}/css';
 		}
 	}
 
-	body, input, select, textarea {
+	body, select {
 		color: _palette(fg);
 		
 		font-family: _font(family);
@@ -477,11 +477,9 @@ $fonturl: '{{ site.baseurl }}/css';
 		margin: 0 0 (_size(element-margin) * 0.5) 0;
 	}
 
-	input[type="text"],
 	input[type="password"],
 	input[type="email"],
-	select,
-	textarea {
+	select {
 		@include vendor('appearance', 'none');
 		background: _palette(border-bg);
 		border-radius: 3px;
@@ -526,19 +524,14 @@ $fonturl: '{{ site.baseurl }}/css';
 		}
 	}
 
-	input[type="text"],
 	input[type="password"],
 	input[type="email"],
 	select {
 		height: _size(element-height);
 	}
 
-	textarea {
-		padding: 0.75em 1em;
-	}
-
 	input[type="checkbox"],
-	input[type="radio"], {
+	input[type="radio"] {
 		@include vendor('appearance', 'none');
 		display: block;
 		float: left;
@@ -1021,7 +1014,6 @@ $fonturl: '{{ site.baseurl }}/css';
 	input[type="submit"],
 	input[type="reset"],
 	input[type="button"],
-	button,
 	.button {
 		@include vendor('appearance', 'none');
 		@include vendor('transition', ('background-color #{_duration(transitions)} ease-in-out', 'color #{_duration(transitions)} ease-in-out'));
@@ -1298,11 +1290,9 @@ $fonturl: '{{ site.baseurl }}/css';
 				color: _palette($p, fg-bold);
 			}
 
-			input[type="text"],
 			input[type="password"],
 			input[type="email"],
-			select,
-			textarea {
+			select {
 				background: _palette($p, border-bg);
 			}
 
@@ -1313,7 +1303,7 @@ $fonturl: '{{ site.baseurl }}/css';
 			}
 
 			input[type="checkbox"],
-			input[type="radio"], {
+			input[type="radio"] {
 				& + label {
 					color: _palette($p, fg);
 
