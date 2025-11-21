@@ -3,3 +3,7 @@
 .sass-cache/
 .idea/
 _site/
+vendor/bundle/
+.bundle/
+Gemfile.lock
+Gemfile
