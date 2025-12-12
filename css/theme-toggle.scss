@@ -1,0 +1,212 @@
+---
+---
+
+/* 主题切换按钮样式 */
+.theme-toggle {
+  background: none;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  padding: 0;
+  
+  &:hover {
+    border-color: rgba(255, 255, 255, 0.8);
+    transform: scale(1.1);
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+  }
+
+  span {
+    font-size: 1.2em;
+    line-height: 1;
+    transition: all 0.3s ease;
+  }
+
+  .sun-icon {
+    display: none;
+  }
+
+  .moon-icon {
+    display: block;
+  }
+}
+
+/* 黑夜主题时的按钮样式 */
+.dark-theme .theme-toggle {
+  border-color: rgba(255, 255, 255, 0.6);
+
+  .sun-icon {
+    display: block;
+  }
+
+  .moon-icon {
+    display: none;
+  }
+}
+
+/* 黑夜主题的全局样式 */
+.dark-theme {
+  /* 背景色 */
+  background-color: #1a1a1a;
+
+  /* 主要内容区域 */
+  #page-wrapper {
+    background-color: #1a1a1a;
+  }
+
+  /* 文字颜色 */
+  body, h1, h2, h3, h4, h5, h6, p, li, a {
+    color: #e0e0e0 !important;
+  }
+
+  /* 链接颜色 */
+  a {
+    color: #64b5f6 !important;
+
+    &:hover {
+      color: #90caf9 !important;
+    }
+  }
+
+  /* Header */
+  #header {
+    background-color: rgba(26, 26, 26, 0.95);
+    
+    h1 {
+      color: #e0e0e0 !important;
+    }
+  }
+
+  /* Banner */
+  #banner {
+    background-color: #2d2d2d;
+
+    h2, p {
+      color: #e0e0e0 !important;
+    }
+  }
+
+  /* 文章列表 */
+  .post-list {
+    background-color: #2d2d2d;
+  }
+
+  article {
+    background-color: #2d2d2d;
+    border-color: #444 !important;
+
+    header {
+      background-color: #333;
+    }
+  }
+
+  /* Footer */
+  #footer {
+    background-color: #1a1a1a;
+    
+    .copyright {
+      color: #999 !important;
+    }
+  }
+
+  /* 菜单 */
+  #menu {
+    background-color: rgba(26, 26, 26, 0.98);
+
+    a {
+      color: #e0e0e0 !important;
+
+      &:hover {
+        color: #64b5f6 !important;
+      }
+    }
+  }
+
+  /* 按钮 */
+  .button {
+    background-color: #444;
+    color: #e0e0e0 !important;
+    border-color: #666;
+
+    &:hover {
+      background-color: #555;
+    }
+  }
+
+  /* 输入框 */
+  input, textarea, select {
+    background-color: #2d2d2d !important;
+    color: #e0e0e0 !important;
+    border-color: #444 !important;
+  }
+
+  /* 代码块 */
+  pre, code {
+    background-color: #2d2d2d !important;
+    color: #e0e0e0 !important;
+    border-color: #444 !important;
+  }
+
+  /* 表格 */
+  table {
+    background-color: #2d2d2d;
+    
+    th {
+      background-color: #333;
+      color: #e0e0e0 !important;
+    }
+
+    td {
+      border-color: #444 !important;
+      color: #e0e0e0 !important;
+    }
+  }
+
+  /* Spotlight */
+  .spotlight {
+    background-color: #2d2d2d;
+
+    .content {
+      background-color: #2d2d2d;
+    }
+  }
+
+  /* 特殊样式 */
+  .wrapper {
+    background-color: #2d2d2d;
+
+    &.style1 {
+      background-color: #2d2d2d;
+    }
+
+    &.style2 {
+      background-color: #1a1a1a;
+    }
+  }
+
+  /* 图片边框 */
+  img {
+    border-color: #444;
+  }
+
+  /* 分隔线 */
+  hr {
+    border-color: #444;
+  }
+
+  /* 引用 */
+  blockquote {
+    border-left-color: #64b5f6;
+    background-color: #2d2d2d;
+    color: #e0e0e0 !important;
+  }
+}

@@ -2102,16 +2102,26 @@ $fonturl: '{{ site.baseurl }}/css';
 		}
 	}
 
+// Header Controls Container (Theme Toggle + Language Switcher)
+.header-controls {
+    position: fixed;
+    top: 0;
+    right: calc(6em + 30px); // Menu (6em) + 30px spacing
+    height: 3em;
+    display: flex;
+    align-items: center;
+    gap: 20px; // 20px spacing between buttons
+    z-index: _misc(z-index-base) + 10;
+    
+    // Small screen: when MENU text is hidden, only icon remains (3em width)
+    @include breakpoint(small) {
+        right: calc(3em + 20px); // Menu icon (3em) + 20px spacing
+    }
+}
+
 // Language Switcher Styles
-    .language-switcher {
-        position: fixed;
-        top: 0;
-        right: calc(6em + 20px); // Adjusted for 20px spacing from menu
-        z-index: _misc(z-index-base) + 10;
-        height: 3em; // Match header height
-        display: flex;
-        align-items: center; // Center align like menu button text
-        width: 100px; // Match button width
+.language-switcher {
+    position: relative;
     
     .language-dropdown {
         position: relative;
@@ -2121,111 +2131,88 @@ $fonturl: '{{ site.baseurl }}/css';
     .language-toggle {
         @include vendor('appearance', 'none');
         @include vendor('transition', 'all #{_duration(transitions)} ease');
-        background: transparent !important; // No background
-        border: 2px solid white !important; // Match SVG stroke-width
-        outline: none !important; // No outline on focus
-        box-shadow: none !important; // No box shadow
-        border-radius: 4px !important; // Rounded corners
-        color: white !important; // Always white text
+        background: transparent;
+        border: 2px solid rgba(255, 255, 255, 0.5);
+        outline: none;
+        box-shadow: none;
+        border-radius: 50%;
+        color: white;
         cursor: pointer;
         display: flex;
         align-items: center;
-        justify-content: center; // Center content horizontally
-        font-size: 0.7em; // Smaller font to match icon size
+        justify-content: center;
+        font-size: 1em;
         font-weight: _font(weight-bold);
-        letter-spacing: _size(letter-spacing-alt);
-        padding: 0 0.8em; // Reduced padding for smaller button
-        text-transform: uppercase;
-        height: 2em; // Smaller height to match icon visual weight
-        line-height: 2em; // Match height
-        width: 100px; // Fixed width
-        min-width: 100px; // Ensure minimum width
-        max-width: 100px; // Ensure maximum width
+        padding: 0;
+        width: 30px;
+        height: 30px;
+        line-height: 1;
         
         &:hover {
-            color: white !important; // Keep white on hover
-            border-color: rgba(255, 255, 255, 0.8); // Slightly transparent on hover
+            border-color: rgba(255, 255, 255, 0.8);
+            transform: scale(1.1);
         }
         
-        &.active {
-            color: white !important; // Keep white when active/dropdown open
+        &:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+        }
+        
+        .fa {
+            display: none;
         }
         
         .current-lang {
-            margin-right: 0.5em; // Adjusted spacing
-        }
-        
-        .fa-chevron-down {
-            font-size: 0.7em; // Adjusted font size
-            @include vendor('transition', 'transform #{_duration(transitions)} ease');
-        }
-        
-        &.active .fa-chevron-down {
-            @include vendor('transform', 'rotate(180deg)');
+            margin: 0;
         }
     }
     
     .language-menu {
-        @include vendor('transition', 'all #{_duration(transitions)} ease');
-        background: rgba(0, 0, 0, 0.9);
-        border: 1px solid rgba(255, 255, 255, 0.3);
-        border-radius: 8px;
+        @include vendor('transition', 'opacity #{_duration(transitions)} ease');
+        background: rgba(45, 55, 72, 0.95);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-radius: 20px;
         backdrop-filter: blur(10px);
         display: none;
-        width: 100%; // Match button width exactly
+        width: 40px;
         position: absolute;
-        right: 0; // Align with button right edge
-        top: 100%;
-        margin-top: 0.3em; // Adjusted margin-top
+        left: 50%;
+        transform: translateX(-50%);
+        top: calc(100% + 10px);
         overflow: hidden;
+        padding: 8px 0;
+        opacity: 0;
         
         &.show {
             display: block;
-            @include vendor('animation', 'fadeInDown 0.3s ease');
+            opacity: 1;
+            @include vendor('animation', 'fadeIn 0.3s ease');
         }
         
         .language-option {
-            @include vendor('transition', 'background-color #{_duration(transitions)} ease');
+            @include vendor('transition', 'all #{_duration(transitions)} ease');
             color: white;
-            display: block;
-            font-size: 0.6em; // Adjusted font size
-            font-weight: _font(weight);
-            letter-spacing: _size(letter-spacing-alt);
-            padding: 0.5em 0.7em; // Adjusted padding
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1em;
+            font-weight: _font(weight-bold);
+            padding: 10px 0;
             text-decoration: none;
-            text-transform: uppercase;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            line-height: 1;
+            
+            &:last-child {
+                border-bottom: none;
+            }
             
             &:hover {
-                background: rgba(255, 255, 255, 0.1);
+                background: rgba(255, 255, 255, 0.15);
+                transform: scale(1.1);
             }
             
             &.active {
-                background: rgba(255, 255, 255, 0.2);
-            }
-        }
-    }
-    
-    @include breakpoint(small) {
-        top: 0; // Adjusted for vertical centering
-        right: calc(3em + 20px); // Adjusted for mobile menu button (icon only) + 20px spacing
-        height: 3em; // Match header height
-        
-        .language-toggle {
-            font-size: 0.7em; // Increased font size for better visibility
-            padding: 0 0.6em; // Reduced padding for mobile
-            height: 2em; // Smaller height to match icon visual weight
-            line-height: 2em; // Match height
-            width: 100px; // Fixed width on mobile too
-            min-width: 100px; // Ensure minimum width
-            max-width: 100px; // Ensure maximum width
-        }
-        
-        .language-menu {
-            width: 100%; // Match button width exactly
-            
-            .language-option {
-                font-size: 0.6em; // Increased font size for better visibility
-                padding: 0.4em 0.5em; // Adjusted padding
+                background: rgba(255, 255, 255, 0.25);
             }
         }
     }
@@ -2239,6 +2226,15 @@ $fonturl: '{{ site.baseurl }}/css';
     100% {
         opacity: 1;
         @include vendor('transform', 'translateY(0)');
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
     }
 }
 

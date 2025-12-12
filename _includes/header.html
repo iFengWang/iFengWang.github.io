@@ -1,12 +1,24 @@
 <!-- Header -->
 <header id="header"{% if page.layout == 'landing' %} class="alt"{% endif %}>
-  
+
   <div class="title-layout">
     <a href="{{ site.baseurl }}/index.html">
       <img src="{{ site.baseurl }}/images/config/logo.png" class="mylogo-small" />
     </a>
     <h1>{{ site.title }}</h1>
   </div>
+
+  <div class="header-controls">
+    <!-- Theme Toggle -->
+    <button id="theme-toggle" class="theme-toggle" aria-label="切换主题">
+      <span class="sun-icon">☀️</span>
+      <span class="moon-icon">🌙</span>
+    </button>
+
+    <!-- Language Switcher -->
+    {% include language-switcher.html %}
+  </div>
+  
   <nav id="nav">
     <ul>
       <li class="special">
@@ -27,5 +39,4 @@
   </nav>
 </header>
 
-<!-- Language Switcher -->
-{% include language-switcher.html %}
+

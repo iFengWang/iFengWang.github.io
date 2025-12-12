@@ -4,9 +4,9 @@
 
   // Language configuration
   const languages = {
-    zh: { name: "中文", code: "zh-CN" },
-    en: { name: "English", code: "en" },
-    ja: { name: "日本語", code: "ja" },
+    zh: { name: "中文", code: "zh-CN", flag: "🇨🇳" },
+    en: { name: "English", code: "en", flag: "🇺🇸" },
+    ja: { name: "日本語", code: "ja", flag: "🇯🇵" },
   };
 
   // Current language state
@@ -25,8 +25,8 @@
       return;
     }
 
-    // Set current language display
-    currentLang.textContent = languages[currentLanguage].name;
+    // Set current language display (use flag instead of name)
+    currentLang.textContent = languages[currentLanguage].flag;
 
     // Toggle dropdown
     toggle.addEventListener("click", function (e) {
@@ -46,7 +46,7 @@
         if (selectedLang !== currentLanguage && !isTranslating) {
           currentLanguage = selectedLang;
           localStorage.setItem("selectedLanguage", currentLanguage);
-          currentLang.textContent = languages[currentLanguage].name;
+          currentLang.textContent = languages[currentLanguage].flag;
 
           // Translate page
           translatePage(currentLanguage);
@@ -242,7 +242,7 @@
     // Update UI
     const currentLang = document.getElementById("currentLang");
     if (currentLang) {
-      currentLang.textContent = languages[currentLanguage].name;
+      currentLang.textContent = languages[currentLanguage].flag;
     }
 
     // Update active option
@@ -292,7 +292,7 @@
       // Update UI
       const currentLang = document.getElementById("currentLang");
       if (currentLang) {
-        currentLang.textContent = languages[currentLanguage].name;
+        currentLang.textContent = languages[currentLanguage].flag;
       }
     },
   };
