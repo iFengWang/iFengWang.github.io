@@ -2102,21 +2102,68 @@ $fonturl: '{{ site.baseurl }}/css';
 		}
 	}
 
-// Header Controls Container (Theme Toggle + Language Switcher)
+// Header Controls Container (Theme Toggle + Language Switcher + Menu Toggle)
 .header-controls {
     position: fixed;
     top: 0;
-    right: calc(6em + 30px); // Menu (6em) + 30px spacing
+    right: 30px; // Fixed spacing from right edge
     height: 3em;
     display: flex;
     align-items: center;
     gap: 20px; // 20px spacing between buttons
     z-index: _misc(z-index-base) + 10;
+}
+
+// Menu Toggle Button (matching theme and language buttons)
+.menu-toggle {
+    @include vendor('appearance', 'none');
+    @include vendor('transition', 'all #{_duration(transitions)} ease');
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    z-index: _misc(z-index-base) + 10;
     
-    // Small screen: when MENU text is hidden, only icon remains (3em width)
-    @include breakpoint(small) {
-        right: calc(3em + 20px); // Menu icon (3em) + 20px spacing
+    &:hover {
+        border-color: rgba(255, 255, 255, 0.8);
+        transform: scale(1.1);
     }
+    
+    &:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+    }
+    
+    a.menuToggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        text-decoration: none;
+        border: none;
+        
+        &:after {
+            display: none; // Hide the default bars icon
+        }
+        
+        .menu-icon {
+            font-size: 1.2em;
+            line-height: 1;
+            color: #fff;
+        }
+    }
+}
+
+// Hide the original nav element (menu button now in header-controls)
+#header #nav {
+    display: none;
 }
 
 // Language Switcher Styles
