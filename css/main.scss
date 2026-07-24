@@ -2196,6 +2196,38 @@ body.is-mobile {
   z-index: _misc(z-index-base) + 10;
 }
 
+#header .header-controls {
+  .theme-toggle,
+  .language-toggle,
+  .menu-toggle {
+    background: rgba(17, 24, 39, 0.58);
+    border-color: rgba(255, 255, 255, 0.82);
+    box-shadow:
+      0 0 0 1px rgba(15, 23, 42, 0.2),
+      0 6px 18px rgba(15, 23, 42, 0.26);
+    backdrop-filter: blur(6px);
+
+    &:hover {
+      background: rgba(17, 24, 39, 0.72);
+      border-color: #ffffff;
+      box-shadow:
+        0 0 0 1px rgba(15, 23, 42, 0.26),
+        0 8px 22px rgba(15, 23, 42, 0.32);
+    }
+
+    &:focus {
+      box-shadow:
+        0 0 0 3px rgba(255, 255, 255, 0.42),
+        0 6px 18px rgba(15, 23, 42, 0.26);
+    }
+  }
+
+  .menu-toggle a.menuToggle .menu-icon {
+    color: #ffffff;
+    text-shadow: 0 1px 3px rgba(15, 23, 42, 0.75);
+  }
+}
+
 // Menu Toggle Button (matching theme and language buttons)
 .menu-toggle {
   @include vendor("appearance", "none");
