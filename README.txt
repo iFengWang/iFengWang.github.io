@@ -1,3 +1,18 @@
+Local preview with Docker
+=========================
+
+Run the blog locally inside a Docker container:
+
+    docker compose up --build
+
+Then open:
+
+    http://127.0.0.1:4000/
+
+Stop the preview with Ctrl-C. To remove the container after stopping:
+
+    docker compose down
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 A Jekyll port of the Spectral theme by HTML5 UP.
 Find the original non-jekyll theme at: http://html5up.net/
